@@ -16,7 +16,7 @@ class UserDesplegable extends Component {
                     <td>{todo.name}</td>
                     <td>{todo.username}</td>
                     <td>{todo.role}</td>
-                    <td>{todo.address.city}</td>
+                    <td>{todo.email}</td>
                 </tr>
             )});
 

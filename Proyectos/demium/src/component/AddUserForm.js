@@ -6,7 +6,47 @@ class AddUserForm extends Component {
     state = {
         name :'',
         username : '',
+        role : '',
         email :''
+    };
+
+    /*Optimizar funciones repetidas*/
+    onChangeName = (e) => {
+        const value = e.target.value;
+        this.setState((prevState) => {
+            //name = state.name
+            prevState.name = value;
+            return prevState;
+        })
+    };
+    onChangeSurName = (e) => {
+        const value = e.target.value;
+        this.setState((prevState) => {
+            //username = state.username
+            prevState.username = value;
+            return prevState;
+        })
+    };
+    onChangeRole = (e) => {
+        const value = e.target.value;
+        this.setState((prevState) => {
+            //username = state.username
+            prevState.role = value;
+            return prevState;
+        })
+    };
+    onChangeEmail = (e) => {
+        const value = e.target.value;
+        this.setState((prevState) => {
+            //username = state.username
+            prevState.email = value;
+            return prevState;
+        })
+    };
+
+    onSubmitForm = (e) => {
+      e.preventDefault();
+      this.props.addUserForm(this.state.name, this.state.username, this.state.role,this.state.email);
     };
 
     render() {
@@ -22,14 +62,16 @@ class AddUserForm extends Component {
         };
 
         return (
-                <form style={formStyle} onSubmit={this.onSubmit}>
+                <form id="formularioId" style={formStyle} onSubmit={this.onSubmitForm}>
                     <div className="form-row">
                         <div className="form-group col-md-3">
                             <label>Name</label>
                             <input type="text"
-                                   value={this.state.name}
+                                   name="inputName"
                                    className="form-control"
                                    placeholder="User name"
+                                   value={this.state.name}
+                                   onChange={this.onChangeName}
                                    required/>
                         </div>
                         <div className="form-group col-md-3">
@@ -47,12 +89,13 @@ class AddUserForm extends Component {
                             <input type="text"
                                    value={this.state.username}
                                    className="form-control"
+                                   onChange={this.onChangeSurName}
                                    placeholder="Last name"
                                    required/>
                         </div>
                         <div className="form-group col-md-3">
                             <label>Role</label>
-                            <select id="inputState" className="form-control">
+                            <select id="inputState" className="form-control" onChange={this.onChangeRole}>
                                 <option>Founder</option>
                                 <option>CTO</option>
                                 <option>CMO</option>
@@ -66,13 +109,14 @@ class AddUserForm extends Component {
                             <input type="email"
                                    className="form-control"
                                    placeholder="Email"
-                                   required/>
+                                   onChange={this.onChangeEmail}
+                            />
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-3">
                             <label>Phone</label>
-                            <input type="text" className="form-control" placeholder="Phone number" required/>
+                            <input type="text" className="form-control" placeholder="Phone number"/>
                         </div>
                         <div className="form-group col-md-3">
                             <button type="submit" className="btn btn-primary">Create</button>

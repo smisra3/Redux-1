@@ -12,7 +12,7 @@ class App extends Component {
           "name": "Leanne Graham",
           "username": "Bret",
           "email": "Sincere@april.biz",
-          "role":"Manager",
+          "role": "Manager",
           "address": {
             "street": "Kulas Light",
             "suite": "Apt. 556",
@@ -82,12 +82,23 @@ class App extends Component {
       ]
     };
 
+    //Add Users
+  addUserForm = (name,username,role,email) => {
+    const newUser = {
+      name,
+      username,
+      role,
+      email
+    };
+    this.setState({todos : [...this.state.todos, newUser]})
+  };
+
   render() {
     return (
       <div className="App">
         <Header/>
         <UserDesplegable todos={this.state.todos}/>
-        <AddUserForm todos={this.state.todos}/>
+        <AddUserForm addUserForm = {this.addUserForm} todos={this.state.todos}/>
       </div>
     );
   }
