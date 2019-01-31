@@ -5,7 +5,7 @@ const Home = (props) => {
     console.log(props);
     return (
         <div>
-            Home <button onClick={ ()}></button>
+            {/*Home <button onClick={ ()}></button>*/}
         </div>
         )
 };
