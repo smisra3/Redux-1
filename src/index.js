@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { Provider } from 'react-redux';
+
+import createStore from './redux/createStore';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-import AppRouter from './component/AppRouter';
 
-//ReactDOM.render(<App />, document.getElementById('root'));
+const store = createStore();
 
-ReactDOM.render(<AppRouter />, document.getElementById('root'));
+/*store.dispatch({
+   type: 'ADD_TODO',
+   data: {
+       completed: false,
+       tarea : 'Aprender Redux'
+   }
+});*/
 
-serviceWorker.unregister();
+ReactDOM.render((
+    /*Siempre se le pasa el store*/
+    <Provider store={store}>
+        <App/>
+    </Provider>),
+        document.getElementById('root'));
+

@@ -1,75 +1,19 @@
 import React, {Component} from 'react';
-import validator from 'validator';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-class AddUserForm extends Component {
-
-    state = {
-        name :'',
-        username : '',
-        role : '',
-        email :''
-    };
-
-    /*Optimizar funciones repetidas*/
-    onChangeName = (e) => {
-        const value = e.target.value;
-        this.setState((prevState) => {
-            //name = state.name
-            prevState.name = value;
-            return prevState;
-        })
-    };
-    onChangeSurName = (e) => {
-        const value = e.target.value;
-        this.setState((prevState) => {
-            //username = state.username
-            prevState.username = value;
-            return prevState;
-        })
-    };
-    onChangeRole = (e) => {
-        const value = e.target.value;
-        this.setState((prevState) => {
-            //username = state.username
-            prevState.role = value;
-            return prevState;
-        })
-    };
-    onChangeEmail = (e) => {
-        const value = e.target.value;
-        this.setState((prevState) => {
-            //email = state.email
-            prevState.email = value;
-            return prevState;
-        })
-    };
-    onSubmitForm = (e) => {
-      e.preventDefault();
-        const {isEmail,isPhone} = require('validator');
-        if(isEmail(this.state.email)){
-            prompt("Valida");
-            this.props.addUserForm(this.state.name, this.state.username, this.state.role,this.state.email);
-        }
-        else{
-            prompt("No es email valido")
-        }
-    };
+class Form extends Component {
 
     render() {
 
         let formStyle = {
             backgroundColor : 'lightBlue',
-            position: 'absolute',
-            left: '0',
-            right: '0',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            width: '80%'
+            width: '80%',
+            margin : 'auto',
+            marginBottom: '20px'
         };
 
         return (
-                <form id="formularioId" style={formStyle} onSubmit={this.onSubmitForm}>
+                <form id="formularioId" style={formStyle} /*onSubmit={this.onSubmitForm}*/>
                     <div className="form-row">
                         <div className="form-group col-md-4">
                             <label className="col-sm-2 col-form-label">Name</label>
@@ -77,8 +21,8 @@ class AddUserForm extends Component {
                                    name="inputName"
                                    className="form-control"
                                    placeholder="User name"
-                                   value={this.state.name}
-                                   onChange={this.onChangeName}/>
+                                /*value={this.state.name}
+                                onChange={this.onChangeName}*//>
                         </div>
                         <div className="form-group col-md-4">
                             <label className="col-sm-2 col-form-label">Headquarter</label>
@@ -93,14 +37,14 @@ class AddUserForm extends Component {
                         <div className="form-group col-md-4">
                             <label  className="col-sm-2 col-form-label">Surname</label>
                             <input type="text"
-                                   value={this.state.username}
+                                /*value={this.state.username}*/
                                    className="form-control"
-                                   onChange={this.onChangeSurName}
+                                /*onChange={this.onChangeSurName}*/
                                    placeholder="Last name"/>
                         </div>
                         <div className="form-group col-md-4">
                             <label  className="col-sm-2 col-form-label">Role</label>
-                            <select id="inputState" className="form-control" onChange={this.onChangeRole}>
+                            <select id="inputState" className="form-control" /*onChange={this.onChangeRole}*/>
                                 <option>Founder</option>
                                 <option>CTO</option>
                                 <option>CMO</option>
@@ -116,7 +60,7 @@ class AddUserForm extends Component {
                             <input type="email"
                                    className="form-control"
                                    placeholder="Email"
-                                   onChange={this.onChangeEmail}/>
+                                /*onChange={this.onChangeEmail}*//>
                         </div>
                     </div>
                     <div className="form-row">
@@ -127,7 +71,17 @@ class AddUserForm extends Component {
                             <input type="text" className="form-control" placeholder="Phone number"/>
                         </div>
                         <div className="form-group offset-1 col-md-3">
-                            <button type="submit" className="btn btn-primary">Create</button>
+                            <button type="submit"
+                                    className="btn btn-primary"
+                                   /* onClick={() => {
+                                        props.dispatch({
+                                            type: 'ADD_TODO',
+                                            data: {
+                                                completed:false,
+                                                tarea:'Aprender Redux'
+                                            }
+                                        });
+                                    }}*/>Create</button>
                         </div>
                     </div>
                 </form>
@@ -135,5 +89,4 @@ class AddUserForm extends Component {
     }
 }
 
-
-export default AddUserForm;
+export default Form;
