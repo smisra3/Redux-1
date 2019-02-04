@@ -9,20 +9,21 @@ class Cards extends Component {
             marginBottom : '40px'
         };
 
-        const ideasCard = this.props.ideas.map((card) => {
+        console.log(this.props.ideas);
+        const ideasCard = this.props.ideas.map((idea) => {
            return (
                        <div style={cardStyle} className="card col-md-4">
                            <div className="card-body">
                                <h5 className="card-title text-center">Unicorn Shop</h5>
                                <hr/>
                                <label htmlFor=""><strong>Type:</strong></label>
-                               <label htmlFor="">{card.businessModelId}</label>
+                               <label htmlFor="">X</label>
                                <br/>
                                <label htmlFor=""><strong>Name:</strong></label>
-                               <label htmlFor="">{card.name}</label>
+                               <label htmlFor="">{idea.name}</label>
                                <br/>
                                <label htmlFor="" name="description"><strong>Description</strong></label>
-                               <p>{card.description}</p>
+                               <p>{idea.description}</p>
                                <div className="row">
                                    <button type="button" className="btn btn-dark btn-circle">LOCK</button>
                                    <button type="button" className="btn btn-primary float-right">+</button>
