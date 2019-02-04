@@ -1,6 +1,22 @@
 import React, {Component} from 'react';
+import {connect} from "react-redux";
 
 class Form extends Component {
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.dispatch({
+            type: 'ADD_CITY',
+            data:  this.state
+        });
+    };
+
+    handleChange = (e) => {
+        const {value,name} = e.target;
+        this.setState({
+            [name] : value
+        })
+    };
 
     render() {
 
@@ -10,7 +26,7 @@ class Form extends Component {
         };
 
         return (
-            <form style={formStyle}/*onSubmit={this.onSubmitForm}*/>
+            <form style={formStyle}  onSubmit={this.handleSubmit}>
                 <div className="form-row">
                     <div className="form-group col-md-4">
                         <h5 className="text-center">Location</h5>
@@ -62,9 +78,11 @@ class Form extends Component {
                     <div className="form-group col-md-4">
                         <label>Address</label>
                         <input type="text"
+                               name="address"
                                className="form-control"
                                placeholder="Full Address"
-                               /*onChange={this.onChangeAddress}*//>
+                               onChange={this.handleChange}
+                               required/>
                     </div>
                 </div>
                 <div className="form-row">
@@ -75,7 +93,9 @@ class Form extends Component {
                         <input type="text"
                                className="form-control"
                                placeholder="Phone number"
-                               /*onChange={this.onChangePhone}*//>
+                               required
+                               name="phone"
+                               onChange={this.handleChange}/>
                     </div>
                     <div className="form-group col-md-2 offset-md-2">
                         <button type="submit" className="btn btn-primary">Create</button>
@@ -86,4 +106,4 @@ class Form extends Component {
     }
 }
 
-export default Form;
+export default connect ()(Form);

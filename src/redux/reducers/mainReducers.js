@@ -1,27 +1,32 @@
-const defaultState = [];
-
+/*const defaultState = [];
 //reducer, recibe datos y devuelve datos. "Función pura"
+/*OPTIMIZAR*/
+/*
 const reducer = (state = defaultState, action) => {
     switch (action.type) {
-        case 'ADD_TODO':
-            return [...state,action.data];
+        case 'ADD_USER':
+            return {
+                ...state,
+                users: [...state.users, action.data]
+            };
+        case 'ADD_CITY':
+            return {
+                ...state,
+                cities: [...state.cities, action.data]
+            };
+        case 'ADD_IDEA':
+            return {
+                ...state,
+                ideas: [...state.ideas, action.data]
+            };
+        case 'ADD_TEAM':
+            return {
+                ...state,
+                teams: [...state.teams, action.data]
+            };
         default:
             return state;
     }
 };
 
-export default reducer;
-
-/*Si defaultState es un Objeto y no un array como ahora,
-*entonces el return del reducer sería algo así:
-* return {
-*   ...state,
-*   todos: [...state.todos,action.data]
-* }
-*
-* Además el cambiaría el return de los connect, en este caso de User/Table por ejemplo,
-* se modificaría y quedaría algo así:
-* return{
-*   todos: state.todos
-* }
-* */
+export default reducer;*/

@@ -2,10 +2,13 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
 class Table extends Component {
-    constructor(props){
-        super(props);
-        console.log(props);
-    }
+
+    deleteUser = (id) => {
+        this.props.dispatch({
+            data : {id},
+            type: 'DELETE_USER'
+        });
+    };
 
     render() {
 
@@ -14,13 +17,15 @@ class Table extends Component {
             marginTop : '5%'
         };
 
-        const datosUsuario = this.props.todos.map((todo) => {
+        const datosUsuario = this.props.users.map((user) => {
             return (
-                <tr>
-                    <td>{todo.tarea}</td>
-                    /*<td>{todo.username}</td>
-                    <td>{todo.role}</td>
-                    <td>{todo.email}</td>*/
+                <tr key={user.id}>
+                    <td>{user.name}</td>
+                    <td>{user.surname}</td>
+                    <td>{user.roleId}</td>
+                    <td>Mirar bbdd/?</td>
+                    <button>Editar</button>
+                    <button onClick={() => {this.deleteUser(user.id)}}>Borrar</button>
                 </tr>
             )});
 
@@ -42,8 +47,15 @@ class Table extends Component {
     }
 }
 
+/*Con el connect en este caso leemos los datos para mostrarlos en la tabla
+Le pasamos una función que por obligación nos devuelva un objeto
+y ese objeto se añadirá a los props
+state = Al estado de redux
+props = Los props de nuestros componentes
+todos = Nuevos componentes
+ */
 export default connect ((state,props) => {
     return {
-        todos : state
+        users : state.users
     }
 }) (Table);

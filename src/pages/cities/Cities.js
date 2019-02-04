@@ -3,9 +3,6 @@ import Form from "./Form";
 import Cards from "./Cards";
 
 class Cities extends Component {
-    constructor(props){
-        super(props)
-    }
 
     render() {
 

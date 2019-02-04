@@ -8,6 +8,7 @@ import Users from '../pages/users/Users';
 import Ideas from '../pages/ideas/Ideas';
 import Error from '../pages/errors/Errors';
 import Footer from "./Footer";
+import CreateTeam from "../pages/teams/CreateTeam";
 
 const AppRouter = () => {
   return (
@@ -20,6 +21,7 @@ const AppRouter = () => {
                       <Route path="/users" component={Users} exact />
                       <Route path="/teams" component={Teams} exact/>
                       <Route path="/errors" component={Error} exact/>
+                      <Route path="/createTeam" component={CreateTeam} exact/>
                   </Switch>
                   <Footer/>
               </div>
@@ -28,3 +30,6 @@ const AppRouter = () => {
 };
 
 export default AppRouter;
+
+/*Preguntar si esto es correcto. Funciona!*/
+/*<Route path="/" component={Table} exact/>*/

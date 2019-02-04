@@ -3,6 +3,21 @@ import { connect } from 'react-redux';
 
 class Form extends Component {
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.dispatch({
+            type: 'ADD_USER',
+            data:  this.state
+        });
+    };
+
+    handleChange = (e) => {
+        const {value,name} = e.target;
+        this.setState({
+            [name] : value
+        })
+    };
+
     render() {
 
         let formStyle = {
@@ -13,16 +28,17 @@ class Form extends Component {
         };
 
         return (
-                <form id="formularioId" style={formStyle} /*onSubmit={this.onSubmitForm}*/>
+                <form id="formularioId" style={formStyle} onSubmit={this.handleSubmit}>
                     <div className="form-row">
                         <div className="form-group col-md-4">
                             <label className="col-sm-2 col-form-label">Name</label>
                             <input type="text"
-                                   name="inputName"
+                                   name="name"
                                    className="form-control"
                                    placeholder="User name"
-                                /*value={this.state.name}
-                                onChange={this.onChangeName}*//>
+                               /*    value={this.state.name}*/
+                                    onChange={this.handleChange}
+                                    required/>
                         </div>
                         <div className="form-group col-md-4">
                             <label className="col-sm-2 col-form-label">Headquarter</label>
@@ -39,8 +55,10 @@ class Form extends Component {
                             <input type="text"
                                 /*value={this.state.username}*/
                                    className="form-control"
-                                /*onChange={this.onChangeSurName}*/
-                                   placeholder="Last name"/>
+                                   name="surname"
+                                   onChange={this.handleChange}
+                                   placeholder="Last name"
+                                   required/>
                         </div>
                         <div className="form-group col-md-4">
                             <label  className="col-sm-2 col-form-label">Role</label>
@@ -71,17 +89,7 @@ class Form extends Component {
                             <input type="text" className="form-control" placeholder="Phone number"/>
                         </div>
                         <div className="form-group offset-1 col-md-3">
-                            <button type="submit"
-                                    className="btn btn-primary"
-                                   /* onClick={() => {
-                                        props.dispatch({
-                                            type: 'ADD_TODO',
-                                            data: {
-                                                completed:false,
-                                                tarea:'Aprender Redux'
-                                            }
-                                        });
-                                    }}*/>Create</button>
+                            <button type="submit" className="btn btn-primary">Create</button>
                         </div>
                     </div>
                 </form>
@@ -89,4 +97,4 @@ class Form extends Component {
     }
 }
 
-export default Form;
+export default connect ()(Form);
