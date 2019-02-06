@@ -1,25 +1,15 @@
 import React, {Component} from 'react';
-import {connect} from "react-redux";
+import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
+import '../../styles/teamCards.css';
 
 class Cards extends Component {
 
     render() {
 
-        const cardStyle = {
-            marginBottom : '40px'
-        };
-        const btn_circle = {
-            width: '60px',
-            height: '60px',
-            padding: '10px 16px',
-            borderRadius: '35px',
-            fontSize: '24px',
-            lineHeight: '1.33',
-        };
-
         const teamsCard = this.props.teams.map((team) => {
             return(
-                    <div style={cardStyle} className="card col-md-4">
+                    <div id="cardStyle" className="card col-md-4">
                         <div className="card-body">
                             <h5 className="card-title">{team.name}</h5>
                             <label htmlFor=""><strong>Idea</strong></label>
@@ -38,7 +28,7 @@ class Cards extends Component {
                                 <dd>white cold drink</dd>
                             </dl>
                             <div className="row">
-                                <button type="button" className="btn btn-dark">Edit</button>
+                                <Link to="/createTeam" type="button" className="btn btn-dark">Edit</Link>
                             </div>
                         </div>
                     </div>
@@ -49,9 +39,7 @@ class Cards extends Component {
             <div className="row">
                 {teamsCard}
                 <div className="container">
-                    <button style={btn_circle}
-                            type="button"
-                            className="btn btn-primary float-right">+</button>
+                    <Link id="btn_circle"  to="/createTeam" className="btn btn-primary float-right">+</Link>
                 </div>
             </div>
         );

@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { deleteUser } from "../../redux/actions/UserAction";
 
 class Table extends Component {
 
     deleteUser = (id) => {
-        this.props.dispatch({
-            data : {id},
-            type: 'DELETE_USER'
-        });
+        this.props.dispatch(deleteUser(id));
     };
 
     render() {
@@ -17,13 +15,13 @@ class Table extends Component {
             marginTop : '5%'
         };
 
-        const datosUsuario = this.props.users.map((user) => {
+        const datosUsuario = this.props.users.map((user) => { //
             return (
-                <tr key={user.id}>
+                <tr user={user} key={user.id}>
                     <td>{user.name}</td>
                     <td>{user.surname}</td>
                     <td>{user.roleId}</td>
-                    <td>Mirar bbdd/?</td>
+                    <td></td>
                     <button>Editar</button>
                     <button onClick={() => {this.deleteUser(user.id)}}>Borrar</button>
                 </tr>

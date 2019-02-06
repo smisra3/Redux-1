@@ -1,17 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import '../../styles/cityCards.css';
 
 class Cards extends Component {
 
     render() {
 
-        const cardStyle = {
-            marginBottom : '40px'
-        };
-
         const citiesCard =this.props.cities.map((city) => {
             return (
-            <div style={cardStyle} className="card col-md-4">
+            <div id="cardStyle" className="card col-md-4">
                 <div className="card-body">
                     <h5 className="card-title">Address</h5>
                     <p className="card-text">{city.address}</p>

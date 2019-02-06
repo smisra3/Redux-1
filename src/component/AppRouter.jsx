@@ -9,6 +9,7 @@ import Ideas from '../pages/ideas/Ideas';
 import Error from '../pages/errors/Errors';
 import Footer from "./Footer";
 import CreateTeam from "../pages/teams/CreateTeam";
+import CreateIdea from "../pages/ideas/CreateIdea";
 
 const AppRouter = () => {
   return (
@@ -22,6 +23,7 @@ const AppRouter = () => {
                       <Route path="/teams" component={Teams} exact/>
                       <Route path="/errors" component={Error} exact/>
                       <Route path="/createTeam" component={CreateTeam} exact/>
+                      <Route path="/createIdea" component={CreateIdea} exact/>
                   </Switch>
                   <Footer/>
               </div>

@@ -1,18 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import { Link } from 'react-router-dom';
 
 class Cards extends Component {
 
     render() {
 
-        const cardStyle = {
-            marginBottom : '40px'
-        };
-
         console.log(this.props.ideas);
         const ideasCard = this.props.ideas.map((idea) => {
            return (
-                       <div style={cardStyle} className="card col-md-4">
+                       <div id="cardStyle" className="card col-md-4">
                            <div className="card-body">
                                <h5 className="card-title text-center">Unicorn Shop</h5>
                                <hr/>
@@ -26,7 +23,6 @@ class Cards extends Component {
                                <p>{idea.description}</p>
                                <div className="row">
                                    <button type="button" className="btn btn-dark btn-circle">LOCK</button>
-                                   <button type="button" className="btn btn-primary float-right">+</button>
                                </div>
                            </div>
                        </div>
@@ -37,7 +33,7 @@ class Cards extends Component {
             <div className="row">
                 {ideasCard}
                 <div className="container">
-                    <button type="button" className="btn btn-secondary btn-lg">+</button>
+                    <Link type="button" className="btn btn-secondary btn-lg" to="/createIdea">+</Link>
                 </div>
             </div>
         );

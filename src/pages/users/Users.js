@@ -1,10 +1,8 @@
 import React from 'react';
-
 import Table from "./Table";
 import Form from "./Form";
 
-
-const Users = (props) => {
+const Users = () => {
     return (
         <div id="userPage">
             <Table/>

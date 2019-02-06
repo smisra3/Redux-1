@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { addUser } from "../../redux/actions/UserAction";
+import  '../../styles/form.css';
 
 class Form extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.dispatch({
-            type: 'ADD_USER',
-            data:  this.state
-        });
+        this.props.dispatch(addUser(this.state));
     };
 
     handleChange = (e) => {
@@ -20,15 +19,8 @@ class Form extends Component {
 
     render() {
 
-        let formStyle = {
-            backgroundColor : 'lightBlue',
-            width: '80%',
-            margin : 'auto',
-            marginBottom: '20px'
-        };
-
         return (
-                <form id="formularioId" style={formStyle} onSubmit={this.handleSubmit}>
+                <form id="formularioId" onSubmit={this.handleSubmit}>
                     <div className="form-row">
                         <div className="form-group col-md-4">
                             <label className="col-sm-2 col-form-label">Name</label>
@@ -43,9 +35,15 @@ class Form extends Component {
                         <div className="form-group col-md-4">
                             <label className="col-sm-2 col-form-label">Headquarter</label>
                             <select id="inputState" className="form-control">
-                                <option>Madrid</option>
-                                <option>Barcelona</option>
-                                <option>Valencia</option>
+                                <option>CISO</option>
+                                <option>CIO</option>
+                                <option>CEO</option>
+                                <option>CTO</option>
+                                <option>CLO</option>
+                                <option>COO</option>
+                                <option>CFO</option>
+                                <option>TM</option>
+                                <option>DP</option>
                             </select>
                         </div>
                     </div>
