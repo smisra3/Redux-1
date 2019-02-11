@@ -1,14 +1,24 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import { addCity } from "../../redux/actions/cityAction";
 
 class Form extends Component {
 
+    state = {
+        address: '',
+        phone: ''
+    };
+
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.dispatch({
-            type: 'ADD_CITY',
-            data:  this.state
-        });
+        const { address, phone } = this.state;
+
+        const newCity = {
+            address,
+            phone
+        };
+
+        this.props.addCity(newCity);
     };
 
     handleChange = (e) => {
@@ -106,4 +116,4 @@ class Form extends Component {
     }
 }
 
-export default connect ()(Form);
+export default connect(null, { addCity }) (Form);

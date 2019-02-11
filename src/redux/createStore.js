@@ -1,24 +1,12 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, applyMiddleware, compose} from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers';
 
-import cityReducer from './reducers/cityReducer';
-import teamReducer from './reducers/teamReducer';
-import userReducer from './reducers/userReducer';
-import ideaReducer from './reducers/ideaReducer';
+const initialState = {};
+const middleware = [thunk];
 
-const createStoreInstance = () => {
-    const tempStore = createStore(
-        combineReducers({
-            cities : cityReducer,
-            users : userReducer,
-            teams : teamReducer,
-            ideas : ideaReducer
-        }),
-        //mainReducers es = a reducer solo se cambia de ubicación por separar el código
-        //Movemos una función de un archivo a otro
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    );
-    return tempStore;
-};
+const store = createStore(rootReducer, initialState, compose(applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+) );
 
-export default createStoreInstance;
-
+export default store;

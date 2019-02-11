@@ -1,14 +1,22 @@
-import jsonIdea from '../../api/idea';
+import { DISPLAY_IDEAS, ADD_IDEA } from '../actions/types';
 
-const defaultState = jsonIdea;
+const initialState = {
+    ideas: []
+};
 
-export const actionTypeIdea = [];
-
-const reducer = (state = defaultState, action) => {
+export default function (state = initialState, action){
     switch (action.type) {
+        case DISPLAY_IDEAS:
+            return {
+                ...state,
+                ideas: action.payload
+            };
+        case ADD_IDEA:
+            return{
+                ...state,
+                ideas: [...state.ideas, action.payload]
+            };
         default:
             return state;
     }
 };
-
-export default reducer;

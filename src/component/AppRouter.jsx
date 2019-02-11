@@ -2,14 +2,15 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import HeaderNav from "./HeaderNav";
-import Cities from '../pages/cities/Cities';
-import Teams from '../pages/teams/Teams';
-import Users from '../pages/users/Users';
-import Ideas from '../pages/ideas/Ideas';
-import Error from '../pages/errors/Errors';
+import Cities from './cities/Cities';
+import Teams from './teams/Teams';
+import Users from './users/Users';
+import Ideas from './ideas/Ideas';
+import Error from './errors/Errors';
 import Footer from "./Footer";
-import CreateTeam from "../pages/teams/CreateTeam";
-import CreateIdea from "../pages/ideas/CreateIdea";
+import CreateTeam from './teams/CreateTeam';
+import CreateIdea from "./ideas/CreateIdea";
+import Login from './Login';
 
 const AppRouter = () => {
   return (
@@ -17,13 +18,14 @@ const AppRouter = () => {
               <div id="main-container">
                   <HeaderNav/>
                   <Switch>
-                      <Route path="/cities" component={Cities} exact/>
-                      <Route path="/ideas" component={Ideas} exact/>
-                      <Route path="/users" component={Users} exact />
-                      <Route path="/teams" component={Teams} exact/>
-                      <Route path="/errors" component={Error} exact/>
-                      <Route path="/createTeam" component={CreateTeam} exact/>
-                      <Route path="/createIdea" component={CreateIdea} exact/>
+                      <Route exact path="/" component={Login}/>
+                      <Route exact path="/cities" component={Cities}/>
+                      <Route exact path="/ideas" component={Ideas}/>
+                      <Route exact path="/users" component={Users}/>
+                      <Route exact path="/teams" component={Teams}/>
+                      <Route exact path="/errors" component={Error}/>
+                      <Route exact path="/createTeam" component={CreateTeam}/>
+                      <Route exact path="/createIdea" component={CreateIdea}/>
                   </Switch>
                   <Footer/>
               </div>

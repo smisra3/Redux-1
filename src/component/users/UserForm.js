@@ -1,13 +1,32 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { addUser } from "../../redux/actions/UserAction";
-import  '../../styles/form.css';
+import { addUser } from "../../redux/actions/userAction";
+import '../../styles/form.css';
 
-class Form extends Component {
+class UserForm extends Component {
+
+    state = {
+        name: '',
+        surname: '',
+        error: false
+    };
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.dispatch(addUser(this.state));
+        const { name, surname } = this.state;
+
+        if(name === '' || surname === ''){
+            this.setState({error:true});
+            return;
+        }
+        this.setState({error:false});
+
+        const newUser = {
+            name,
+            surname
+        };
+
+        this.props.addUser(newUser);
     };
 
     handleChange = (e) => {
@@ -18,8 +37,9 @@ class Form extends Component {
     };
 
     render() {
-
+        const { error } = this.state;
         return (
+            <React.Fragment>
                 <form id="formularioId" onSubmit={this.handleSubmit}>
                     <div className="form-row">
                         <div className="form-group col-md-4">
@@ -28,9 +48,7 @@ class Form extends Component {
                                    name="name"
                                    className="form-control"
                                    placeholder="User name"
-                               /*    value={this.state.name}*/
-                                    onChange={this.handleChange}
-                                    required/>
+                                   onChange={this.handleChange}/>
                         </div>
                         <div className="form-group col-md-4">
                             <label className="col-sm-2 col-form-label">Headquarter</label>
@@ -51,16 +69,14 @@ class Form extends Component {
                         <div className="form-group col-md-4">
                             <label  className="col-sm-2 col-form-label">Surname</label>
                             <input type="text"
-                                /*value={this.state.username}*/
                                    className="form-control"
                                    name="surname"
                                    onChange={this.handleChange}
-                                   placeholder="Last name"
-                                   required/>
+                                   placeholder="Last name"/>
                         </div>
                         <div className="form-group col-md-4">
                             <label  className="col-sm-2 col-form-label">Role</label>
-                            <select id="inputState" className="form-control" /*onChange={this.onChangeRole}*/>
+                            <select id="inputState" className="form-control">
                                 <option>Founder</option>
                                 <option>CTO</option>
                                 <option>CMO</option>
@@ -91,8 +107,14 @@ class Form extends Component {
                         </div>
                     </div>
                 </form>
+                {error ? <div className="font-weight-bold alert alert-danger text-center mt-4">
+                    Todos los campos son obligatorios
+                </div> : '' }
+            </React.Fragment>
+
         );
     }
 }
 
-export default connect ()(Form);
+export default connect(null, { addUser }) (UserForm);
+

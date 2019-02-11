@@ -6,12 +6,11 @@ import '../../styles/teamCards.css';
 class Cards extends Component {
 
     render() {
-
-        const teamsCard = this.props.teams.map((team) => {
+            const { id, name, cityId, users } = this.props.info;
             return(
                     <div id="cardStyle" className="card col-md-4">
                         <div className="card-body">
-                            <h5 className="card-title">{team.name}</h5>
+                            <h5 className="card-title">{name}</h5>
                             <label htmlFor=""><strong>Idea</strong></label>
                             <label htmlFor="">texto Idea</label>
                             <br/>
@@ -32,22 +31,8 @@ class Cards extends Component {
                             </div>
                         </div>
                     </div>
-            )
-        });
+            );
 
-        return (
-            <div className="row">
-                {teamsCard}
-                <div className="container">
-                    <Link id="btn_circle"  to="/createTeam" className="btn btn-primary float-right">+</Link>
-                </div>
-            </div>
-        );
-    }
 }
-
-export default connect ((state,props) => {
-    return {
-        teams : state.ideas
-    }
-}) (Cards);
+}
+ export default Cards;

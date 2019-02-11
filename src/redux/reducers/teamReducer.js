@@ -1,14 +1,17 @@
-import jsonTeam from '../../api/team';
+import { DISPLAY_TEAMS } from '../actions/types';
 
-const defaultState = jsonTeam;
+const initialState = {
+    teams: []
+};
 
-export const actionTypeTeam = [];
-
-const reducer = (state = defaultState, action) => {
+export default function (state = initialState, action){
     switch (action.type) {
+        case DISPLAY_TEAMS:
+            return {
+                ...state,
+                teams: action.payload
+            };
         default:
             return state;
     }
 };
-
-export default reducer;

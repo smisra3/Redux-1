@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 class CreateTeam extends Component {
 
-
     render() {
         return (
             <div className="container">
@@ -34,9 +33,9 @@ class CreateTeam extends Component {
                         <div className="col-2">
                             <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                 <option selected>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option>One</option>
+                                <option>Two</option>
+                                <option>Three</option>
                             </select>
                         </div>
                         <div className="col-2">
@@ -64,9 +63,9 @@ class CreateTeam extends Component {
                         <div className="col-2">
                             <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                 <option selected>Choose...</option>
-                                <option value="1">Madrid</option>
-                                <option value="2">Barcelona</option>
-                                <option value="3">Valencia</option>
+                                <option>Madrid</option>
+                                <option>Barcelona</option>
+                                <option>Valencia</option>
                             </select>
                         </div>
                         <div className="col-2">
