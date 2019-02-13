@@ -11,11 +11,11 @@ class Cards extends Component {
                     <div id="cardStyle" className="card col-md-4">
                         <div className="card-body">
                             <h5 className="card-title">{name}</h5>
-                            <label htmlFor=""><strong>Idea</strong></label>
-                            <label htmlFor="">texto Idea</label>
+                            <label className="mr-2"><strong>Idea</strong></label>
+                            <label>texto Idea</label>
                             <br/>
-                            <label htmlFor=""><strong>City</strong></label>
-                            <label htmlFor="">texto ciudad</label>
+                            <label className="mr-2"><strong>City</strong></label>
+                            <label>texto ciudad</label>
                             <dl>
                                 <dt><strong>Team Members</strong></dt>
                                 <dd>texto equipo</dd>
@@ -32,7 +32,6 @@ class Cards extends Component {
                         </div>
                     </div>
             );
-
-}
+    }
 }
  export default Cards;

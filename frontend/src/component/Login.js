@@ -1,14 +1,26 @@
 import React, {Component} from 'react';
 import '../styles/login.css';
 import {addUser} from "../redux/actions/userAction";
+import axios from 'axios';
+import request from 'request-promise';
 
 class Login extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+       /*const config = {
+            headers: {'Authorization':  token}
+        };*/
+        console.log('OK');
+
         const email = document.getElementById("email").value;
         const pass = document.getElementById("password").value;
-        this.props.validarLogin()
+        const url = 'http://localhost:5000';
+        const answer = axios.post('/auth-users/',{email:'hola'}).then(res => {
+            console.log(res.data)
+        });
+
+
     };
 
     render() {
@@ -37,3 +49,16 @@ class Login extends Component {
 }
 
 export default Login;
+     /*
+           const rq = {
+          method:"POST",
+          uri: '/auth-users',
+          json:true
+      };
+           request(rq)
+          .then(function (data) {
+              console.log(data);
+          })
+          .catch(function (err) {
+              console.log(err);
+          }) */
