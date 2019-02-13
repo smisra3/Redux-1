@@ -111,7 +111,6 @@ class UserForm extends Component {
                     Todos los campos son obligatorios
                 </div> : '' }
             </React.Fragment>
-
         );
     }
 }

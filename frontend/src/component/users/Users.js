@@ -31,7 +31,6 @@ class Users extends Component {
                 </table>
                 <UserForm/>
             </React.Fragment>
-
         );
     }
 };
