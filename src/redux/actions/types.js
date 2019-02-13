@@ -13,3 +13,6 @@ export const ADD_IDEA = 'ADD_IDEA';
 
 //Team Actions
 export const DISPLAY_TEAMS = 'DISPLAY_TEAMS';
+
+//Roles Action
+export const DISPLAY_ROLES = 'DISPLAY_ROLES';

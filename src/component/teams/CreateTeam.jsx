@@ -6,7 +6,7 @@ class CreateTeam extends Component {
         return (
             <div className="container">
                 <form>
-                    <div className="row">
+                    <div className="row m-3">
                         <h5>Edit Team</h5>
                     </div>
                     <div className="row">
@@ -16,21 +16,21 @@ class CreateTeam extends Component {
                         <p>Please select the idea that the team will be developing.</p>
                     </div>
                     <div className="row">
-                        <div className="col-2">
+                        <div className="col-3">
                             <p><strong>Selected Idea</strong></p>
                         </div>
-                        <div className="col-2">
+                        <div className="col-3">
                             <p>Meter variable idea</p>
                         </div>
-                        <div className="col-2">
+                        <div className="col-3">
                             <img src="#" alt="#"/>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-2">
+                        <div className="col-3">
                             <p><strong>Change Idea</strong></p>
                         </div>
-                        <div className="col-2">
+                        <div className="col-3">
                             <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                 <option selected>Choose...</option>
                                 <option>One</option>
@@ -49,18 +49,18 @@ class CreateTeam extends Component {
                         <p>Please select the headquarter where the team is located</p>
                     </div>
                     <div className="row">
-                        <div className="col-2">
+                        <div className="col-3">
                             <p><strong>Selected City</strong></p>
                         </div>
-                        <div className="col-2">
+                        <div className="col-3">
                             <p>Meter variable city</p>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-2">
+                        <div className="col-3">
                             <p><strong>Change City</strong></p>
                         </div>
-                        <div className="col-2">
+                        <div className="col-3">
                             <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                 <option selected>Choose...</option>
                                 <option>Madrid</option>
@@ -68,7 +68,7 @@ class CreateTeam extends Component {
                                 <option>Valencia</option>
                             </select>
                         </div>
-                        <div className="col-2">
+                        <div className="col-3">
                             <button className="btn-primary">Select</button>
                         </div>
                     </div>
@@ -79,7 +79,7 @@ class CreateTeam extends Component {
                         <p>Please select the teams member and choose their roles</p>
                     </div>
                     <div className="row">
-                        <div className="col-2">
+                        <div className="col-3">
                             <p><strong>Selected Members</strong></p>
                         </div>
                     </div>

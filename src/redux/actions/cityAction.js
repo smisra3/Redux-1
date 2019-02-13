@@ -9,6 +9,8 @@ export const displayCities = () => async dispatch => {
     })
 };
 
+
+
 export const addCity = (city) => async dispatch => {
     const answer = await axios.post('http://localhost:5000/city',city);
     dispatch({

@@ -21,10 +21,7 @@ class UserForm extends Component {
         }
         this.setState({error:false});
 
-        const newUser = {
-            name,
-            surname
-        };
+        const newUser = {name, surname};
 
         this.props.addUser(newUser);
     };
@@ -37,6 +34,8 @@ class UserForm extends Component {
     };
 
     render() {
+        const roles  = this.props.roles;
+        const cities  = this.props.cities;
         const { error } = this.state;
         return (
             <React.Fragment>
@@ -53,15 +52,9 @@ class UserForm extends Component {
                         <div className="form-group col-md-4">
                             <label className="col-sm-2 col-form-label">Headquarter</label>
                             <select id="inputState" className="form-control">
-                                <option>CISO</option>
-                                <option>CIO</option>
-                                <option>CEO</option>
-                                <option>CTO</option>
-                                <option>CLO</option>
-                                <option>COO</option>
-                                <option>CFO</option>
-                                <option>TM</option>
-                                <option>DP</option>
+                                {cities.map(city => (
+                                    <option key={city.id}>{city.name}</option>
+                                ))}
                             </select>
                         </div>
                     </div>
@@ -77,10 +70,9 @@ class UserForm extends Component {
                         <div className="form-group col-md-4">
                             <label  className="col-sm-2 col-form-label">Role</label>
                             <select id="inputState" className="form-control">
-                                <option>Founder</option>
-                                <option>CTO</option>
-                                <option>CMO</option>
-                                <option>SEO</option>
+                                {roles.map(role => (
+                                    <option key={role.id}>{role.name}</option>
+                                ))}
                             </select>
                         </div>
                     </div>
