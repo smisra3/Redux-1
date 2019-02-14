@@ -3,6 +3,7 @@ import Cards from "./Cards";
 import { connect } from 'react-redux';
 import { displayIdeas } from "../../redux/actions/ideaAction";
 import { Link } from 'react-router-dom';
+import '../../styles/ideas.css';
 
 class Ideas extends Component {
 
@@ -19,7 +20,7 @@ class Ideas extends Component {
                         <Cards info={idea} key={idea}/>
                     ))}
                 </div>
-                <Link to="/createIdea" className="btn btn-primary">+</Link>
+                <Link to="/createIdea" className="btn btn-primary btn-lg" id="btnCreate">+</Link>
             </React.Fragment>
         );
     }

@@ -5,6 +5,7 @@ import { displayCities } from "../../redux/actions/cityAction";
 import { connect } from 'react-redux';
 import UserRow from './UserRow';
 import UserForm from './UserForm';
+import '../../styles/users.css';
 
 class Users extends Component {
 
@@ -15,22 +16,25 @@ class Users extends Component {
     }
 
     render() {
-        const { users, roles, cities } = this.props;
+
+        const { roles, cities } = this.props;
+
         return (
             <React.Fragment>
-                <table id="table" className="table">
+                <table id="table" className="container">
                     <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Surname</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">HeadQuarter</th>
-                    </tr>
+                    <th id="user" colSpan="4">Users</th>
+                        <tr id="user-row">
+                            <th scope="col">Name</th>
+                            <th scope="col">Surname</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">HeadQuarter</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    {users.map(user => (
-                        <UserRow info={user} key={user.id}/>
-                    ))};
+                        {this.props.users.map(user => (
+                            <UserRow info={user}/>
+                        ))}
                     </tbody>
                 </table>
                 <UserForm cities={cities} roles={roles} key={roles.id}/>
@@ -40,7 +44,7 @@ class Users extends Component {
 };
 
 const mapStateToProps = state => {
-    return { users: state.users.users,
+    return {users: state.users.users,
             roles: state.roles.roles,
             cities: state.cities.cities}
 };

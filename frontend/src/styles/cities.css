@@ -1,0 +1,25 @@
+#cardStyle {
+    margin-bottom : 40px;
+    margin-left: 5%;
+}
+#formStyle  {
+    margin: 30px;
+    background-color: lightblue;
+}
+#cityName{
+    background-color: #e4594b;
+    color: white;
+    text-align: center;
+}
+#tx-2{
+    color: #e4594b;
+    font-weight: lighter;
+}
+#tx-3{
+    color: #e4594b;
+    margin: 5px;
+    font-weight: lighter;
+}
+.card-text {
+    margin: 5px;
+}

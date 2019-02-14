@@ -6,7 +6,6 @@ import Cities from './cities/Cities';
 import Teams from './teams/Teams';
 import Users from './users/Users';
 import Ideas from './ideas/Ideas';
-import Error from './errors/Errors';
 import Footer from "./Footer";
 import CreateTeam from './teams/CreateTeam';
 import CreateIdea from "./ideas/CreateIdea";

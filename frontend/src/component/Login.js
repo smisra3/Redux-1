@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../styles/login.css';
+import '../styles/main.css';
 import {addUser} from "../redux/actions/userAction";
 import axios from 'axios';
 import request from 'request-promise';
@@ -8,23 +8,29 @@ class Login extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-       /*const config = {
+        const config = {
             headers: {'Authorization':  token}
-        };*/
-        console.log('OK');
-
+        };
         const email = document.getElementById("email").value;
         const pass = document.getElementById("password").value;
-        const url = 'http://localhost:5000';
-        const answer = axios.post('/auth-users/',{email:'hola'}).then(res => {
-            console.log(res.data)
-        });
-
-
+/*        localStorage.setItem("email", email);
+        localStorage.setItem("password", pass);*/
+        const token = config;
+        const body = {
+            "email" : email,
+            "password" : pass,
+            "strategy": "local"
+        };
+        const answer = axios.post('http://52.213.25.226:3030/authentication/',body).then(res => {
+            const tokenPersonal = res.data.accessToken;
+            localStorage.setItem("token", tokenPersonal);
+            if (res.status == 201 ) {
+                this.props.history.push('/teams')
+            }
+        })
     };
 
     render() {
-
         return (
             <div id="login-form">
                 <form onSubmit={this.handleSubmit}>

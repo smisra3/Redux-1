@@ -11,20 +11,19 @@ class Cities extends Component {
     }
 
     render() {
-        const { cities } = this.props;
         return (
             <React.Fragment>
                 <div id="citiesPage" className="row">
-                    {cities.map(city => (
-                        <Cards info={city} key={city.id}/>
+                    {this.props.cities.map(city => (
+                        <Cards info={city} key={city.id} />
                     ))}
                 </div>
-                <Form/>
+                <Form />
             </React.Fragment>
         );
     }
 }
 const mapStateToProps = state => ({
-    cities: state.cities.cities
+    cities: state.cities.cities,
 });
 export default connect (mapStateToProps, { displayCities })(Cities);

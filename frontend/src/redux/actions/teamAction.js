@@ -1,10 +1,10 @@
-import { DISPLAY_TEAMS } from "./types";
+import { DISPLAY_TEAMS, CONFIG } from "./types";
 import axios from 'axios';
 
 export const displayTeam = () => async dispatch => {
-    const answer = await axios.get('http://localhost:5000/team');
+    const answer = await axios.get('http://52.213.25.226:3030/team', CONFIG);
     dispatch({
         type: DISPLAY_TEAMS,
-        payload: answer.data
+        payload: answer.data.data
     })
 };

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-import '../../styles/teamCards.css';
+import '../../styles/teams.css';
 
 class Cards extends Component {
 
@@ -10,19 +10,19 @@ class Cards extends Component {
             return(
                     <div id="cardStyle" className="card col-md-4">
                         <div className="card-body">
-                            <h5 className="card-title">{name}</h5>
-                            <label className="mr-2"><strong>Idea</strong></label>
+                            <h5 id="card-title-team" className="card-title">{name}</h5>
+                            <label id="tx-2" className="mr-2">Idea</label>
                             <label>texto Idea</label>
                             <br/>
-                            <label className="mr-2"><strong>City</strong></label>
+                            <label id="tx-2" className="mr-2">City</label>
                             <label>texto ciudad</label>
                             <dl>
-                                <dt><strong>Team Members</strong></dt>
+                                <dt id="tx-3">Team Members</dt>
                                 <dd>texto equipo</dd>
                                 <dd>texto equipo</dd>
                             </dl>
                             <dl>
-                                <dt>Demium Team</dt>
+                                <dt id="tx-3">Demium Team</dt>
                                 <dd>Noelia</dd>
                                 <dd>white cold drink</dd>
                             </dl>

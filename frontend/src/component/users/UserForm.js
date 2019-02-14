@@ -1,28 +1,29 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { addUser } from "../../redux/actions/userAction";
-import '../../styles/form.css';
+import '../../styles/users.css';
 
 class UserForm extends Component {
 
     state = {
         name: '',
         surname: '',
+        email: '',
+        telephone: '',
         error: false
     };
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { name, surname } = this.state;
+        const { name, surname, telephone, email } = this.state;
 
-        if(name === '' || surname === ''){
+        if(name === '' || surname === '' || telephone === '' || email === ''){
             this.setState({error:true});
             return;
         }
         this.setState({error:false});
 
-        const newUser = {name, surname};
-
+        const newUser = {name, surname, email, telephone};
         this.props.addUser(newUser);
     };
 
@@ -39,7 +40,7 @@ class UserForm extends Component {
         const { error } = this.state;
         return (
             <React.Fragment>
-                <form id="formularioId" onSubmit={this.handleSubmit}>
+                <form id="form" onSubmit={this.handleSubmit}>
                     <div className="form-row">
                         <div className="form-group col-md-4">
                             <label className="col-sm-2 col-form-label">Name</label>
@@ -84,7 +85,8 @@ class UserForm extends Component {
                             <input type="email"
                                    className="form-control"
                                    placeholder="Email"
-                                /*onChange={this.onChangeEmail}*//>
+                                   name="email"
+                                    onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="form-row">
@@ -92,7 +94,11 @@ class UserForm extends Component {
                             <label  className="col-sm-2 col-form-label">Phone</label>
                         </div>
                         <div className="form-group col-md-4">
-                            <input type="text" className="form-control" placeholder="Phone number"/>
+                            <input type="text"
+                                   name="telephone"
+                                   className="form-control"
+                                   placeholder="Phone number"
+                                   onChange={this.handleChange}/>
                         </div>
                         <div className="form-group offset-1 col-md-3">
                             <button type="submit" className="btn btn-primary">Create</button>

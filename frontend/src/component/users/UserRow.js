@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import '../../styles/users.css'
 import { deleteUser } from "../../redux/actions/userAction";
 
 class UserRow extends Component {
@@ -7,8 +8,9 @@ class UserRow extends Component {
         const { id } = this.props.info;
         this.props.deleteUser(id);
     };
+
     render() {
-        const { name, surname, roleId, id } =this.props.info;
+        const { id, name, surname, roleId } =this.props.info;
         return (
                 <tr>
                     <td>{name}</td>

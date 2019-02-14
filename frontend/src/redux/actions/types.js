@@ -6,6 +6,7 @@ export const DELETE_USER = 'DELETE_USER';
 //Cities Actions
 export const DISPLAY_CITIES = 'DISPLAY_CITIES';
 export const ADD_CITY = 'ADD_CITY';
+export const GET_CITIES_USERS = 'GET_CITIES_USERS';
 
 //Ideas Action
 export const DISPLAY_IDEAS = 'DISPLAY_IDEAS';
@@ -16,3 +17,9 @@ export const DISPLAY_TEAMS = 'DISPLAY_TEAMS';
 
 //Roles Action
 export const DISPLAY_ROLES = 'DISPLAY_ROLES';
+
+export const TOKEN = localStorage.getItem("token");
+
+export const CONFIG = {
+    headers: {'Authorization':  TOKEN}
+};

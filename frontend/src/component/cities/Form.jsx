@@ -1,23 +1,42 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import '../../styles/cities.css';
 import { addCity } from "../../redux/actions/cityAction";
+import { displayUsers } from "../../redux/actions/userAction";
 
 class Form extends Component {
 
+    componentDidMount() {
+        this.props.displayUsers();
+    }
+
     state = {
+        users: [],
+        userSelected: null,
+        name: '',
         address: '',
-        phone: ''
+        telephone: ''
+    };
+    selectUser = e => {
+        console.log( e.target.value);
+        this.setState({userSelected:JSON.parse( e.target.value)})
+    };
+
+    addUserToTeam = (e) => {
+        e.preventDefault();
+        this.setState({users: [...this.state.users, this.state.userSelected]});
     };
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { address, phone } = this.state;
-
+        const { users, name, address, telephone } = this.state;
+        prompt((users));
         const newCity = {
+            users:this.state.users,
+            name,
             address,
-            phone
+            telephone
         };
-
         this.props.addCity(newCity);
     };
 
@@ -29,14 +48,10 @@ class Form extends Component {
     };
 
     render() {
-
-        const formStyle = {
-            margin: '30px',
-            backgroundColor: 'lightBlue'
-        };
-
+        const { users } = this.props;
+        console.log(typeof (users));
         return (
-            <form style={formStyle}  onSubmit={this.handleSubmit}>
+            <form id="formStyle"  onSubmit={this.handleSubmit}>
                 <div className="form-row">
                     <div className="form-group col-md-4">
                         <h5 className="text-center">Location</h5>
@@ -60,16 +75,23 @@ class Form extends Component {
                         <label htmlFor="inputEmail4">Team</label>
                     </div>
                     <div className="form-group col-md-2">
-                        <select className="form-control" id="exampleFormControlSelect1">
-                            <option>PM</option>
-                            <option>TM</option>
+                        <select id="selectOption" className="form-control" onChange={this.selectUser}>
+                            {users.map(user => (
+                                <option value={JSON.stringify(user)} key={user.id}>{user.name}</option>
+                            ))}
                         </select>
+                        <label id="labelAddUser">
+                            {
+                                this.state.users.map(user => <div>{user.name}</div>)
+                            }
+                        </label>
                     </div>
                     <div className="form-group col-md-1">
-                        <button type="submit" className="btn btn-primary btn-sm">Add</button>
+                        <button value="" className="btn btn-primary btn-sm"
+                        onClick={this.addUserToTeam}>Add</button>
                     </div>
                     <div className="form-group col-md-1">
-                        <button type="submit" className="btn btn-danger btn-sm">Remove</button>
+                        <button  className="btn btn-danger btn-sm">Remove</button>
                     </div>
                 </div>
                 <div className="form-row">
@@ -116,4 +138,8 @@ class Form extends Component {
     }
 }
 
-export default connect(null, { addCity }) (Form);
+const mapStateToProps = state => ({
+    users: state.users.users
+});
+
+export default connect(mapStateToProps, { addCity , displayUsers }) (Form);

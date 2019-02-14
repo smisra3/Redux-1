@@ -73,27 +73,47 @@
   "role": [
     {
       "id": 1,
-      "name": "CTO",
+      "name": "CISO",
       "is_demium": false
     },
     {
       "id": 2,
-      "name": "CMO",
+      "name": "CIO",
       "is_demium": false
     },
     {
       "id": 3,
-      "name": "CFO",
+      "name": "CEO",
       "is_demium": false
     },
     {
       "id": 4,
-      "name": "TM",
+      "name": "CTO",
       "is_demium": true
     },
     {
       "id": 5,
-      "name": "DP",
+      "name": "CLO",
+      "is_demium": true
+    },
+    {
+      "id": 6,
+      "name": "COO",
+      "is_demium": false
+    },
+    {
+      "id": 7,
+      "name": "CFO",
+      "is_demium": false
+    },
+    {
+      "id": 8,
+      "name": "TM",
+      "is_demium": true
+    },
+    {
+      "id": 9,
+      "name": "PM",
       "is_demium": true
     }
   ],
@@ -152,7 +172,7 @@
     },
     {
       "name": "Isai",
-      "surname": "Albarran",
+      "surname": "Albarran ",
       "id": 3
     }
   ]

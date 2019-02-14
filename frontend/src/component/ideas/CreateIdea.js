@@ -8,6 +8,7 @@ class CreateIdea extends Component {
         name: '',
         businessModelId: '',
         description: '',
+        teamId:'',
         available: false
     };
 
@@ -44,18 +45,18 @@ class CreateIdea extends Component {
                         <input onChange={this.handleChange}
                                name="name"
                                type="text"
-                               className="form-control"
+                               className="form-control col-md-6 m-2"
                                placeholder="Name"
                                required/>
                     </div>
                     <div className="row">
-                        <p><strong>Business Model</strong></p>
+                        <p className="m-2"><strong>Business Model</strong></p>
                     </div>
-                    <div className="row">
-                        <div className="col-2">
+                    <div className="row mr-2">
+                        <div className="col-1">
                             <p>Type</p>
                         </div>
-                        <div className="col-2">
+                        <div className="col-4">
                             <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                 <option value="1">App</option>
                                 <option value="2">E-Commerce</option>
@@ -68,7 +69,7 @@ class CreateIdea extends Component {
                     </div>
                     <div className="row">
                         <textarea onChange={this.handleChange}
-                                  name="description" rows="4" cols="50"  rows="10" cols="40"
+                                  name="description" rows="4" cols="2"  rows="5" cols="40"
                                   placeholder="Add a description" required>
                         </textarea>
                     </div>
@@ -77,8 +78,8 @@ class CreateIdea extends Component {
                             : <span className="btn-primary">Available</span> }
 
                     </div>
-                    <div className="row">
-                        <div className="col-2">
+                    <div className="row mt-2">
+                        <div className="col-2 mr-2">
                             <p><strong>Headquartes</strong></p>
                         </div>
                         <div className="col-2">
@@ -86,7 +87,7 @@ class CreateIdea extends Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-2">
+                        <div className="col-2 mr-2">
                             <p><strong>Team Name</strong></p>
                         </div>
                         <div className="col-2">
@@ -94,7 +95,7 @@ class CreateIdea extends Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-2">
+                        <div className="col-2 mr-2">
                             <p><strong>Blocked date</strong></p>
                         </div>
                         <div className="col-2">
@@ -103,7 +104,7 @@ class CreateIdea extends Component {
                     </div>
                     <hr/>
                 </form>
-                <button onClick={this.handleSubmit} className="btn btn-primary">+</button>
+                <button onClick={this.handleSubmit} className="btn btn-primary">Save</button>
             </div>
         );
     }

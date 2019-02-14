@@ -8,7 +8,7 @@ class Cards extends Component {
 
            return (
                        <div id="cardStyle" className="card col-md-4">
-                           <div className="card-body">
+                           <div className="card-body container-fluid">
                                <h5 className="card-title text-center">Unicorn Shop</h5>
                                <hr/>
                                <label htmlFor="" className="mr-2"><strong>Type:</strong></label>
@@ -20,7 +20,7 @@ class Cards extends Component {
                                <label htmlFor="" name="description"><strong>Description</strong></label>
                                <p>{description}</p>
                                <div className="row">
-                                   <button type="button" className="btn btn-dark btn-circle">LOCK</button>
+                                   <button type="button" className="btn btn-dark btn-circle">Edit</button>
                                </div>
                            </div>
                        </div>
