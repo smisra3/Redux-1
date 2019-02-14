@@ -1,0 +1,8 @@
+{
+  "name": "isai_repo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://isaialbarran@bitbucket.org/demiumstartups/isai_repo.git",
+  "author": "isaialbarran <isaialbarran@hotmail.com>",
+  "license": "MIT"
+}
