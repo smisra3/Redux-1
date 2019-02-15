@@ -20,7 +20,7 @@ export default function (state = initialState, action){
             return{
                 ...state,
                 users: state.users.filter(user => (
-                    user.id !== action.payload
+                    user._id !== action.payload
                 ))
             };
         default:

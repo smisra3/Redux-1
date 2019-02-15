@@ -19,7 +19,7 @@ class Form extends Component {
     };
     selectUser = e => {
         console.log( e.target.value);
-        this.setState({userSelected:JSON.parse( e.target.value)})
+        this.setState({userSelected:JSON.parse(e.target.value)})
     };
 
     addUserToTeam = (e) => {
@@ -30,7 +30,7 @@ class Form extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const { users, name, address, telephone } = this.state;
-        prompt((users));
+        console.log(typeof (users));
         const newCity = {
             users:this.state.users,
             name,
@@ -49,7 +49,6 @@ class Form extends Component {
 
     render() {
         const { users } = this.props;
-        console.log(typeof (users));
         return (
             <form id="formStyle"  onSubmit={this.handleSubmit}>
                 <div className="form-row">

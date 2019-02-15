@@ -17,8 +17,8 @@ export const addUser = (user) => async dispatch => {
     })
 };
 
-export const deleteUser = (id) => async dispatch => {
-    await axios.delete(`http://52.213.25.226:3030/user/_id${id}`, CONFIG);
+export const deleteUser = id => async dispatch => {
+    await axios.delete(`http://52.213.25.226:3030/user/${id}`, CONFIG);
     dispatch({
         type: DELETE_USER,
         payload: id
