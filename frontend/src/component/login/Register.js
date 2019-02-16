@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {connect} from "react-redux";
-import {addNewRegister} from "../../redux/actions/loginAction";
+import axios from "axios";
 
 class Register extends Component {
 
@@ -23,6 +22,7 @@ class Register extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const { name, lastname, email, password } = this.state;
+
         if(name === '' || lastname === '' || email === '' || password === ''){
             this.setState({submitted:true});
             return;
@@ -32,7 +32,18 @@ class Register extends Component {
             email,
             password
         };
-        this.props.addNewRegister(register);
+        //Registro en API
+        axios.post(`http://52.213.25.226:3030/auth-users/`, register)
+            .then( res => {
+                if(res.status === 201){
+                    this.props.history.push('/')
+                }
+            })
+            .catch(e => {
+                if(e.response){
+                    console.log(e.response.data.message);
+                }
+            });
     };
 
     render() {
@@ -72,4 +83,4 @@ class Register extends Component {
     }
 }
 
-export default connect(null, { addNewRegister }) (Register);
+export default Register;

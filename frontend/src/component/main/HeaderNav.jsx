@@ -4,7 +4,7 @@ import '../../styles/main.css';
 
 const HeaderNav = () => {
         return (
-            <div id="headerNav" className="container-fluid navbar mr-2 justify-content-end">
+            <div id="headerNav" className="navbar justify-content-end">
                 <NavLink id="nav" to="/Teams">Teams</NavLink>
                 <NavLink id="nav" to="/Ideas">Ideas</NavLink>
                 <NavLink id="nav" to="/Cities">Cities</NavLink>

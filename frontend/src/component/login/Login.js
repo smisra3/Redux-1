@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import '../../styles/main.css';
 import { Link } from "react-router-dom";
-import { addUser } from "../../redux/actions/userAction";
 import axios from 'axios';
-import request from 'request-promise';
 
 class Login extends Component {
+
+    state = {
+        error : false
+    };
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -22,16 +24,23 @@ class Login extends Component {
             "password" : pass,
             "strategy": "local"
         };
-        const answer = axios.post('http://52.213.25.226:3030/authentication/',body).then(res => {
-            const tokenPersonal = res.data.accessToken;
-            localStorage.setItem("token", tokenPersonal);
-            if (res.status === 201 ) {
-                this.props.history.push('/teams')
+
+        axios.post('http://52.213.25.226:3030/authentication/',body)
+            .then( res => {
+                const tokenPersonal = res.data.accessToken;
+                localStorage.setItem("token", tokenPersonal);
+                if(res.status === 201){
+                    this.props.history.push('/teams')
+                }
+            }).catch(e => {
+            if(e.response){
+                console.log(e.response.data.message);
             }
-        })
+        });
     };
 
     render() {
+        const { error } = this.state;
         return (
             <div id="login-form">
                 <form onSubmit={this.handleSubmit}>
@@ -47,6 +56,9 @@ class Login extends Component {
                         <Link to="/register" className="btn btn-link">Register</Link>
                     </div>
                 </form>
+                {error ? <div className="font-weight-bold alert alert-danger text-center mt-4">
+                    Invalid Login
+                </div> : '' }
             </div>
         );
     }

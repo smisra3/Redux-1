@@ -58,7 +58,8 @@ class Form extends Component {
     render() {
         const { users } = this.props;
         return (
-            <form id="formStyle"  onSubmit={this.handleSubmit}>
+            <form id="form"  onSubmit={this.handleSubmit}>
+                <h5 id="title">Add City</h5>
                 <div className="form-row">
                     <div className="form-group col-md-4">
                         <h5 className="text-center">Location</h5>
@@ -68,8 +69,8 @@ class Form extends Component {
                     </div>
                 </div>
                 <div className="form-row">
-                    <div className="form-group col-md-1">
-                        <label htmlFor="inputEmail4">Country</label>
+                    <div className="form-group">
+                        <h5 id="h5C" className="ml-2">Country</h5>
                     </div>
                     <div className="form-group col-md-2">
                         <select className="form-control" id="exampleFormControlSelect1">
@@ -79,7 +80,7 @@ class Form extends Component {
                     <div className="offset-md-2">
                     </div>
                     <div className="form-group col-md-1">
-                        <label htmlFor="inputEmail4">Team</label>
+                        <label>Team</label>
                     </div>
                     <div className="form-group col-md-2">
                         <select id="selectOption" className="form-control" onChange={this.selectUser}>
@@ -103,7 +104,7 @@ class Form extends Component {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-1">
-                        <label htmlFor="inputEmail4">City</label>
+                        <h5 id="h5C" className="ml-2">City</h5>
                     </div>
                     <div className="form-group col-md-2">
                         <select className="form-control" onChange={this.cityName}>
@@ -115,10 +116,10 @@ class Form extends Component {
                 </div >
                 <div className="form-row">
                     <div className="form-group col-md-4">
-                        <label>Address</label>
+                        <h5 id="h5C" className="ml-2">Address</h5>
                         <input type="text"
                                name="address"
-                               className="form-control"
+                               className="form-control ml-2"
                                placeholder="Full Address"
                                onChange={this.handleChange}
                                required/>
@@ -126,7 +127,7 @@ class Form extends Component {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-2">
-                        <label>Phone</label>
+                        <h5 id="h5C" className="ml-2">Phone</h5>
                     </div>
                     <div className="form-group col-md-2">
                         <input type="text"
@@ -137,7 +138,7 @@ class Form extends Component {
                                onChange={this.handleChange}/>
                     </div>
                     <div className="form-group col-md-2 offset-md-2">
-                        <button type="submit" className="btn btn-primary">Create</button>
+                        <button id="btn-create" type="submit" className="btn btn-primary">CREATE</button>
                     </div>
                 </div>
             </form>

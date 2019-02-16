@@ -29,3 +29,16 @@
     color: #e4594b;
     font-weight: bolder;
 }
+#btn-plus{
+    margin-left: 90%;
+    background-color: #1AC317;
+    border-radius: 999em;
+    border: none;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    line-height: 1;
+    font-size: 25px;
+    position: relative;
+    cursor: pointer;
+}

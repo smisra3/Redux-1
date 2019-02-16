@@ -12,16 +12,16 @@ class Cards extends Component {
     render() {
         const { name, address, telephone } = this.props.info;
             return (
-            <div id="cardStyle" className="card col-md-3">
-                <div className="card-body">
-                    <h5 id="cityName">{name}</h5>
+            <div id="cardStyle" className="card">
+                <div>
+                    <h5 id="card-title">{name}</h5>
                     <p id="tx-2" className="card-title">Address</p>
                     <p className="card-text">{address}</p>
                     <label id="tx-2" className="card-title">Phone</label>
                     <span id="card-phone" className="card-text">{telephone}</span>
                     <p id="tx-3" className="card-title">Demium Team</p>
                     <p className="card-text">Demium Team</p>
-                    <button href="btn" className="btn btn-primary">View</button>
+                    <button href="btn" className="btn btn-primary m-3">View</button>
                 </div>
             </div>
             );

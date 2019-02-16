@@ -20,7 +20,7 @@ class Ideas extends Component {
                         <Cards info={idea} key={idea}/>
                     ))}
                 </div>
-                <Link to="/createIdea" className="btn btn-primary btn-lg" id="btnCreate">+</Link>
+                <Link id="btn-plus" to="/createIdea" className="btn btn-primary">+</Link>
             </React.Fragment>
         );
     }

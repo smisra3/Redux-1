@@ -1,13 +1,27 @@
 import React, {Component} from 'react';
+import { addIdea } from "../../redux/actions/ideaAction";
+import { connect } from 'react-redux';
+import { getBusinessmodels } from "../../redux/actions/businessAction";
+import '../../styles/ideas.css';
 
-class EditIdea extends Component {
+class CreateIdea extends Component {
+
+    componentDidMount() {
+        this.props.getBusinessmodels();
+    }
 
     state = {
         name: '',
-        businessModelId: '',
+        businessModelId: null,
         description: '',
         teamId:'',
         available: false
+    };
+
+    selectBusiness = (e) => {
+        const valor = e.target.value;
+        console.log(typeof (valor));
+        console.log(e.target.value);
     };
 
     handleSubmit = (e) => {
@@ -35,81 +49,55 @@ class EditIdea extends Component {
     };
 
     render() {
+        const { businessmodels } = this.props;
         const { available } = this.state;
         return (
             <div className="container">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="row">
-                        <h5>Create Idea</h5>
+                <div id="form" onSubmit={this.handleSubmit}>
+                    <div>
+                        <h5 id="title">Edit Idea</h5>
                     </div>
-                    <div className="row">
+                    <div><h5 id="h5C">Name</h5>
                         <input onChange={this.handleChange}
+                               id="inputC"
                                name="name"
                                type="text"
-                               className="form-control col-md-6 m-2"
                                placeholder="Name"
                                required/>
                     </div>
-                    <div className="row">
-                        <p className="m-2"><strong>Business Model</strong></p>
-                    </div>
-                    <div className="row mr-2">
-                        <div className="col-1">
-                            <p>Type</p>
-                        </div>
-                        <div className="col-4">
-
-                            <select required className="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                <option value="1">App</option>
-                                <option value="2">E-Commerce</option>
-                                <option value="3">SaaS</option>
-                                <input type="submit"/>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <p><strong>Description</strong></p>
-                    </div>
-                    <div className="row">
-                        <textarea onChange={this.handleChange}
-                                  name="description" rows="4" cols="2"  rows="5" cols="40"
-                                  placeholder="Add a description" required>
+                    <h5 id="h5C">Business Model</h5>
+                    <span id="h4C">Select type</span>
+                    <select value={this.state.value}
+                            onChange={this.selectBusiness}>
+                        {businessmodels.map(business => (
+                            <option ref={business}>{business.name}</option>
+                        ))}
+                    </select>
+                    <h5 id="h5C">Description</h5>
+                    <textarea onChange={this.handleChange}
+                              id="inputC"
+                              name="description" rows="3" cols="50"
+                              placeholder="Add a description" required>
                         </textarea>
-                    </div>
-                    <div className="row">
+                    <div>
                         {available ? <span className="btn-danger disabled">Not available</span>
-                            : <span className="btn-primary">Available</span> }
+                            : <span id="available" className="btn-primary">Available</span> }
                     </div>
-                    <div className="row mt-2">
-                        <div className="col-2 mr-2">
-                            <p><strong>Headquartes</strong></p>
-                        </div>
-                        <div className="col-2">
-                            <p>Madrid</p>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-2 mr-2">
-                            <p><strong>Team Name</strong></p>
-                        </div>
-                        <div className="col-2">
-                            <p>Real Unicorn</p>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-2 mr-2">
-                            <p><strong>Blocked date</strong></p>
-                        </div>
-                        <div className="col-2">
-                            <p>19/12/2019</p>
-                        </div>
-                    </div>
-                    <hr/>
-                    <button type="submit" className="btn btn-primary">Save</button>
-                </form>
+                    <p id="h4C">Headquartes</p>
+                    <p id="h3C">Madrid</p><br/>
+                    <p id="h4C">Team Name</p>
+                    <p id="h3C">Real Unicorn</p><br/>
+                    <p id="h4C">Blocked date</p>
+                    <p id="h3C">19/12/2019</p>
+                    <button id="btn-save" type="submit" className="btn btn-primary">Save</button>
+                </div>
             </div>
         );
     }
 }
-
-export default EditIdea;
+const mapStateToProps = state => {
+    return {
+        businessmodels: state.businessmodels.businessmodels
+    }
+};
+export default connect(mapStateToProps, { getBusinessmodels, addIdea }) (CreateIdea);

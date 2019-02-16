@@ -9,19 +9,18 @@ class Cards extends Component {
 
            return (
                    <div id="cardStyle" className="card">
-                       <div className="card-body container-fluid">
-                           <h5 className="card-title text-center">Unicorn Shop</h5>
-                           <hr/>
-                           <label htmlFor="" className="mr-2"><strong>Type:</strong></label>
-                           <label htmlFor="">{businessModelId}</label>
+                       <div>
+                           <h5 id="card-title">Unicorn Shop</h5>
+                           <label id="h4C">Type:</label>
+                           <label>{businessModelId}</label>
                            <br/>
-                           <label htmlFor="" className="mr-2"><strong>Name:</strong></label>
-                           <label htmlFor="">{name}</label>
+                           <label id="h4C">Name:</label>
+                           <label>{name}</label>
                            <br/>
-                           <label htmlFor="" name="description"><strong>Description</strong></label>
-                           <p>{description}</p>
+                           <label id="h4C" name="description">Description</label>
+                           <p id="h3C">{description}</p>
                            <div className="row">
-                               <button type="button" className="btn btn-dark btn-circle">Edit</button>
+                               <button id="btn-save" type="button" className="btn btn-dark">Edit</button>
                            </div>
                        </div>
                    </div>

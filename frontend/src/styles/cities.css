@@ -1,6 +1,6 @@
 #cardStyle {
-    margin-bottom : 40px;
-    margin-left: 5%;
+    width: 26%;
+    margin-left: 4%;
 }
 #formStyle  {
     margin: 30px;
@@ -22,4 +22,27 @@
 }
 .card-text {
     margin: 5px;
+}
+#form {
+    background-color: lightblue;
+    margin-left: 5%;
+    margin-bottom: 20px;
+}
+#btn-create{
+    background-color: forestgreen;
+    border: none;
+    margin-left: 90%;
+    font-family: sans-serif;
+}
+#h5C{
+    margin: 5px 20px;
+    color: #e4594b;
+}
+#card-title{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background-color: #e4594b;
 }

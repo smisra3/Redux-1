@@ -20,7 +20,7 @@ class Teams extends Component {
                         <Cards info={team} key={team.id}/>
                     ))}
                 </div>
-                <Link to="/createTeam" className="btn btn-primary pull-right">+</Link>
+                <Link id="btn-plus" to="/createTeam" className="btn btn-primary">+</Link>
             </React.Fragment>
         );
     }

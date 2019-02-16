@@ -41,17 +41,18 @@ class UserForm extends Component {
         return (
             <React.Fragment>
                 <form id="form" onSubmit={this.handleSubmit}>
+                    <h5 id="title">Add User</h5>
                     <div className="form-row">
                         <div className="form-group col-md-4">
-                            <label className="col-sm-2 col-form-label">Name</label>
+                            <h5 id="h5C" className="col-sm-2 col-form-label">Name</h5>
                             <input type="text"
                                    name="name"
-                                   className="form-control"
+                                   className="form-control ml-2"
                                    placeholder="User name"
                                    onChange={this.handleChange}/>
                         </div>
                         <div className="form-group col-md-4">
-                            <label className="col-sm-2 col-form-label">Headquarter</label>
+                            <h5 id="h5C" className="col-sm-2 col-form-label">Headquarter</h5>
                             <select id="inputState" className="form-control">
                                 {cities.map(city => (
                                     <option key={city.id}>{city.name}</option>
@@ -61,15 +62,15 @@ class UserForm extends Component {
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-4">
-                            <label  className="col-sm-2 col-form-label">Surname</label>
+                            <h5 id="h5C" className="col-sm-2 col-form-label">Surname</h5>
                             <input type="text"
-                                   className="form-control"
+                                   className="form-control ml-2"
                                    name="surname"
                                    onChange={this.handleChange}
                                    placeholder="Last name"/>
                         </div>
                         <div className="form-group col-md-4">
-                            <label  className="col-sm-2 col-form-label">Role</label>
+                            <h5 id="h5C" className="col-sm-2 col-form-label">Role</h5>
                             <select id="inputState" className="form-control">
                                 <option>None yet</option>
                                 {roles.map(role => (
@@ -80,7 +81,7 @@ class UserForm extends Component {
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-2">
-                            <label className="col-sm-2 col-form-label">Email</label>
+                            <h5 id="h5C" className="col-sm-2 col-form-label">Email</h5>
                         </div>
                         <div className="form-group col-md-4">
                             <input type="email"
@@ -92,7 +93,7 @@ class UserForm extends Component {
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-2">
-                            <label  className="col-sm-2 col-form-label">Phone</label>
+                            <h5 id="h5C" className="col-sm-2 col-form-label">Phone</h5>
                         </div>
                         <div className="form-group col-md-4">
                             <input type="text"
@@ -102,7 +103,7 @@ class UserForm extends Component {
                                    onChange={this.handleChange}/>
                         </div>
                         <div className="form-group offset-1 col-md-3">
-                            <button type="submit" className="btn btn-primary">Create</button>
+                            <button id="btn-create" type="submit" className="btn btn-primary">CREATE</button>
                         </div>
                     </div>
                 </form>

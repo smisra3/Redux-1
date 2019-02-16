@@ -9,6 +9,7 @@ import Ideas from '../ideas/Ideas';
 import Footer from "./Footer";
 import CreateTeam from '../teams/CreateTeam';
 import CreateIdea from "../ideas/CreateIdea";
+import EditIdea from '../ideas/EditIdea';
 import Login from '../login/Login';
 import Register from '../login/Register';
 
@@ -26,6 +27,7 @@ const AppRouter = () => {
                       <Route exact path="/teams" component={Teams}/>
                       <Route exact path="/errors" component={Error}/>
                       <Route exact path="/createTeam" component={CreateTeam}/>
+                      <Route exact path="/editIdea" component={EditIdea}/>
                       <Route exact path="/createIdea" component={CreateIdea}/>
                   </Switch>
                   <Footer/>
