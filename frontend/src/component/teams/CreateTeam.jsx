@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../../styles/teams.css';
 
 class CreateTeam extends Component {
 

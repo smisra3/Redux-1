@@ -18,8 +18,14 @@ export const DISPLAY_TEAMS = 'DISPLAY_TEAMS';
 //Roles Action
 export const DISPLAY_ROLES = 'DISPLAY_ROLES';
 
-export const TOKEN = localStorage.getItem("token");
+//Businessmodels Action
+export const DISPLAY_BUSINESSMODELS = 'DISPLAY_BUSINESSMODELS';
 
+//Login-Register Action
+export const ADD_REGISTER = 'ADD_REGISTER';
+export const ERROR = 'ERROR';
+
+export const TOKEN = localStorage.getItem("token");
 export const CONFIG = {
     headers: {'Authorization':  TOKEN}
 };

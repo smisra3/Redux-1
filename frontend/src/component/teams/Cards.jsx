@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import '../../styles/teams.css';
 
 class Cards extends Component {
 
     render() {
-            const { id, name, cityId, users } = this.props.info;
+            const { name } = this.props.info;
             return(
                     <div id="cardStyle" className="card col-md-4">
                         <div className="card-body">

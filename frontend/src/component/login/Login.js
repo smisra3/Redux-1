@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import '../styles/main.css';
-import {addUser} from "../redux/actions/userAction";
+import '../../styles/main.css';
+import { Link } from "react-router-dom";
+import { addUser } from "../../redux/actions/userAction";
 import axios from 'axios';
 import request from 'request-promise';
 
@@ -24,7 +25,7 @@ class Login extends Component {
         const answer = axios.post('http://52.213.25.226:3030/authentication/',body).then(res => {
             const tokenPersonal = res.data.accessToken;
             localStorage.setItem("token", tokenPersonal);
-            if (res.status == 201 ) {
+            if (res.status === 201 ) {
                 this.props.history.push('/teams')
             }
         })
@@ -42,29 +43,13 @@ class Login extends Component {
                         <input id="password" type="password" className="form-control" placeholder="Password" required="required"/>
                     </div>
                     <div className="form-group">
-                        <button type="submit" className="btn btn-primary btn-block">Log in</button>
-                    </div>
-                    <div className="clearfix">
-                        <a href="#" className="pull-right">Forgot Password?</a>
+                        <button className="btn btn-primary">Login</button>
+                        <Link to="/register" className="btn btn-link">Register</Link>
                     </div>
                 </form>
-                <p className="text-center"><a href="#">Create an Account</a></p>
             </div>
         );
     }
 }
 
 export default Login;
-     /*
-           const rq = {
-          method:"POST",
-          uri: '/auth-users',
-          json:true
-      };
-           request(rq)
-          .then(function (data) {
-              console.log(data);
-          })
-          .catch(function (err) {
-              console.log(err);
-          }) */

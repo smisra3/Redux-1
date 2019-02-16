@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import AppRouter from "./component/AppRouter";
-import Login from "./component/Login";
+import AppRouter from "./component/main/AppRouter";
 
 class App extends Component {
 
   render() {
     return (
-        //<Login/>
         <AppRouter/>
     );
   }

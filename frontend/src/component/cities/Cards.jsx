@@ -10,7 +10,7 @@ class Cards extends Component {
     }
 
     render() {
-        const { name, address, telephone , users } = this.props.info;
+        const { name, address, telephone } = this.props.info;
             return (
             <div id="cardStyle" className="card col-md-3">
                 <div className="card-body">

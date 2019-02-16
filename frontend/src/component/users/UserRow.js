@@ -10,7 +10,7 @@ class UserRow extends Component {
     };
 
     render() {
-        const { id, name, surname, roleId } =this.props.info;
+        const { name, surname, roleId } =this.props.info;
         return (
                 <tr>
                     <td>{name}</td>

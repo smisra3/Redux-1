@@ -1,26 +1,13 @@
 import React, {Component} from 'react';
-import { addIdea } from "../../redux/actions/ideaAction";
-import { connect } from 'react-redux';
-import { getBusinessmodels } from "../../redux/actions/businessAction";
 
-class CreateIdea extends Component {
-
-    componentDidMount() {
-        this.props.getBusinessmodels();
-    }
+class EditIdea extends Component {
 
     state = {
         name: '',
-        businessModelId: null,
+        businessModelId: '',
         description: '',
         teamId:'',
         available: false
-    };
-
-    selectBusiness = (e) => {
-        const valor = e.target.value;
-        console.log(typeof (valor));
-        console.log(e.target.value);
     };
 
     handleSubmit = (e) => {
@@ -48,7 +35,6 @@ class CreateIdea extends Component {
     };
 
     render() {
-        const { businessmodels } = this.props;
         const { available } = this.state;
         return (
             <div className="container">
@@ -68,24 +54,25 @@ class CreateIdea extends Component {
                         <p className="m-2"><strong>Business Model</strong></p>
                     </div>
                     <div className="row mr-2">
+                        <div className="col-1">
+                            <p>Type</p>
+                        </div>
                         <div className="col-4">
-                            <label htmlFor="select-type">Select type</label>
-                            <select value={this.state.value}
-                                    onChange={this.selectBusiness}
-                                    className="form-control">
-                                {businessmodels.map(business => (
-                                    <option ref={business}>{business.name}
-                                    </option>
-                                ))}
+
+                            <select required className="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                <option value="1">App</option>
+                                <option value="2">E-Commerce</option>
+                                <option value="3">SaaS</option>
+                                <input type="submit"/>
                             </select>
                         </div>
                     </div>
                     <div className="row">
-                        <p className="m-2"><strong>Description</strong></p>
+                        <p><strong>Description</strong></p>
                     </div>
                     <div className="row">
                         <textarea onChange={this.handleChange}
-                                  name="description" rows="5" cols="40"
+                                  name="description" rows="4" cols="2"  rows="5" cols="40"
                                   placeholder="Add a description" required>
                         </textarea>
                     </div>
@@ -124,9 +111,5 @@ class CreateIdea extends Component {
         );
     }
 }
-const mapStateToProps = state => {
-    return {
-        businessmodels: state.businessmodels.businessmodels
-       }
-};
-export default connect(mapStateToProps, { getBusinessmodels, addIdea }) (CreateIdea);
+
+export default EditIdea;

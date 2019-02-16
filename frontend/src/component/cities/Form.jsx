@@ -17,6 +17,7 @@ class Form extends Component {
         address: '',
         telephone: ''
     };
+
     selectUser = e => {
         console.log( e.target.value);
         this.setState({userSelected:JSON.parse(e.target.value)})
@@ -27,10 +28,17 @@ class Form extends Component {
         this.setState({users: [...this.state.users, this.state.userSelected]});
     };
 
+    cityName = (e) => {
+        const {value,name} = e.target;
+        this.setState({
+            [name] : value
+        })
+    };
+
     handleSubmit = (e) => {
         e.preventDefault();
         const { users, name, address, telephone } = this.state;
-        console.log(typeof (users));
+        console.log(users,name,address,telephone);
         const newCity = {
             users:this.state.users,
             name,
@@ -98,10 +106,10 @@ class Form extends Component {
                         <label htmlFor="inputEmail4">City</label>
                     </div>
                     <div className="form-group col-md-2">
-                        <select className="form-control" id="exampleFormControlSelect1">
-                            <option>Madrid</option>
-                            <option>Barcelona</option>
-                            <option>Valencia</option>
+                        <select className="form-control" onChange={this.cityName}>
+                            <option value="Madrid">Madrid</option>
+                            <option value="Barcelona">Barcelona</option>
+                            <option value="Valencia">Valencia</option>
                         </select>
                     </div>
                 </div >
@@ -125,7 +133,7 @@ class Form extends Component {
                                className="form-control"
                                placeholder="Phone number"
                                required
-                               name="phone"
+                               name="telephone"
                                onChange={this.handleChange}/>
                     </div>
                     <div className="form-group col-md-2 offset-md-2">

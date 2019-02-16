@@ -3,6 +3,7 @@ import Cards from "./Cards";
 import { connect } from 'react-redux';
 import { displayTeam } from "../../redux/actions/teamAction";
 import {Link} from "react-router-dom";
+import '../../styles/teams.css';
 
 class Teams extends Component {
 
@@ -14,12 +15,12 @@ class Teams extends Component {
         const { teams } = this.props;
         return (
             <React.Fragment>
-                <div id="teamPage" className="row">
+                <div className="row container">
                     {teams.map(team => (
                         <Cards info={team} key={team.id}/>
                     ))}
                 </div>
-                <Link to="/createTeam" className="btn btn-primary">+</Link>
+                <Link to="/createTeam" className="btn btn-primary pull-right">+</Link>
             </React.Fragment>
         );
     }

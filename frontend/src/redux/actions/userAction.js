@@ -1,4 +1,4 @@
-import { DISPLAY_USERS, ADD_USER, DELETE_USER, CONFIG, TOKEN } from "./types";
+import { DISPLAY_USERS, ADD_USER, DELETE_USER, CONFIG } from "./types";
 import axios from 'axios';
 
 export const displayUsers = () => async dispatch => {

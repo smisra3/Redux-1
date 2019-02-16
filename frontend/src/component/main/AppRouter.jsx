@@ -2,14 +2,15 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import HeaderNav from "./HeaderNav";
-import Cities from './cities/Cities';
-import Teams from './teams/Teams';
-import Users from './users/Users';
-import Ideas from './ideas/Ideas';
+import Cities from '../cities/Cities';
+import Teams from '../teams/Teams';
+import Users from '../users/Users';
+import Ideas from '../ideas/Ideas';
 import Footer from "./Footer";
-import CreateTeam from './teams/CreateTeam';
-import CreateIdea from "./ideas/CreateIdea";
-import Login from './Login';
+import CreateTeam from '../teams/CreateTeam';
+import CreateIdea from "../ideas/CreateIdea";
+import Login from '../login/Login';
+import Register from '../login/Register';
 
 const AppRouter = () => {
   return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
                   <HeaderNav/>
                   <Switch>
                       <Route exact path="/" component={Login}/>
+                      <Route exact path="/register" component={Register}/>
                       <Route exact path="/cities" component={Cities}/>
                       <Route exact path="/ideas" component={Ideas}/>
                       <Route exact path="/users" component={Users}/>

@@ -71,6 +71,7 @@ class UserForm extends Component {
                         <div className="form-group col-md-4">
                             <label  className="col-sm-2 col-form-label">Role</label>
                             <select id="inputState" className="form-control">
+                                <option>None yet</option>
                                 {roles.map(role => (
                                     <option key={role.id}>{role.name}</option>
                                 ))}

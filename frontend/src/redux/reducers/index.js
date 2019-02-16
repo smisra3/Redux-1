@@ -4,6 +4,8 @@ import ideaReducer from './ideaReducer';
 import teamReducer from './teamReducer';
 import userReducer from './userReducer';
 import roleReducer from './roleReducer';
+import businessmodelReducer from './businessmodelReducer';
+import loginReducer from './loginReducer';
 
 export default combineReducers({
 
@@ -11,6 +13,8 @@ export default combineReducers({
     ideas: ideaReducer,
     users: userReducer,
     teams: teamReducer,
-    roles: roleReducer
+    roles: roleReducer,
+    businessmodels : businessmodelReducer,
+    logins: loginReducer
 
 });
