@@ -8,12 +8,10 @@ class Cards extends Component {
 
     componentDidMount() {
         this.props.getCities();
-        console.log(this.props.info)
     }
 
     render() {
         const { id , name, address, telephone } = this.props.info;
-        console.log(id);
             return (
             <div id="cardStyle" className="card">
                 <div>

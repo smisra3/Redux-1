@@ -32,7 +32,6 @@ class Form extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.telephoneRef.current.value);
         //const { users, name, address, telephone } = this.state;
         const newCity = {
             users:this.state.users,
@@ -40,7 +39,6 @@ class Form extends Component {
             address: this.addressRef.current.value,
             telephone: this.telephoneRef.current.value
         };
-        console.log(newCity);
         this.props.addCity(newCity);
     };
 

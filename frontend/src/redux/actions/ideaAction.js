@@ -10,7 +10,7 @@ export const displayIdeas = () => async dispatch => {
 };
 
 export const addIdea = idea => async dispatch => {
-    const answer = await axios.post(`http://localhost:5000/idea`, idea);
+    const answer = await axios.post(`http://52.213.25.226:3030/idea`, idea, CONFIG);
     dispatch({
         type: ADD_IDEA,
         payload: answer.data

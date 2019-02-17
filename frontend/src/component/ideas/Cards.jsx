@@ -7,10 +7,16 @@ class Cards extends Component {
     render() {
             const { name, businessModelId, description } = this.props.info;
 
+            let title = '';
+            if ( businessModelId === 'SaaS') {title = 'Super Saas'}
+            else if( businessModelId === 'E-Commerce') {title = 'Unicorn Shop'}
+            else if( businessModelId === 'App') {title = 'Super App'}
+            else {title = 'Super Unicorn'};
+
            return (
                    <div id="cardStyle" className="card">
                        <div>
-                           <h5 id="card-title">Unicorn Shop</h5>
+                           <h5 id="card-title">{title}</h5>
                            <label id="h4C">Type:</label>
                            <label>{businessModelId}</label>
                            <br/>

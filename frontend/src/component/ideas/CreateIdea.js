@@ -12,52 +12,36 @@ class CreateIdea extends Component {
 
     state = {
         name: '',
-        businessModelId: null,
-        description: '',
-        teamId:'',
-        available: false
+        businessModelId: '',
+        description: ''
     };
-
-    selectBusiness = (e) => {
-        const valor = e.target.value;
-        console.log(typeof (valor));
-        console.log(e.target.value);
-    };
+    //Ref leen los valores en el campo de un formulario
+    nameRef = React.createRef();
+    busisnessRef = React.createRef();
+    descriptionRef = React.createRef();
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { name, businessModelId, description } = this.state;
-        console.log(name);
-        console.log(businessModelId);
-        console.log(description);
 
         const newIdea = {
-            name,
-            businessModelId,
-            description
+            name: this.nameRef.current.value,
+            businessModelId: this.busisnessRef.current.value,
+            description: this.descriptionRef.current.value
         };
-
         this.props.addIdea(newIdea);
         this.props.history.push('/ideas');
-    };
-
-    handleChange = (e) => {
-        const {value,name} = e.target;
-        this.setState({
-            [name] : value
-        })
     };
 
     render() {
         const { businessmodels } = this.props;
         return (
             <div className="container">
-                <div id="form" onSubmit={this.handleSubmit}>
+                <form id="form" onSubmit={this.handleSubmit}>
                     <div>
                         <h5 id="title">Create Idea</h5>
                     </div>
                     <div><h5 id="h5C">Name</h5>
-                        <input onChange={this.handleChange}
+                        <input ref={this.nameRef}
                                id="inputC"
                                name="name"
                                type="text"
@@ -66,20 +50,20 @@ class CreateIdea extends Component {
                     </div>
                     <h5 id="h5C">Business Model</h5>
                             <span id="h4C">Select type</span>
-                            <select value={this.state.value}
-                                    onChange={this.selectBusiness}>
+                            <select
+                                    ref={this.busisnessRef}>
                                 {businessmodels.map(business => (
                                     <option ref={business}>{business.name}</option>
                                 ))}
                             </select>
                         <h5 id="h5C">Description</h5>
-                        <textarea onChange={this.handleChange}
+                        <textarea ref={this.descriptionRef}
                                   id="inputC"
                                   name="description" rows="3" cols="50"
                                   placeholder="Add a description" required>
                         </textarea>
                     <button id="btn-save" type="submit" className="btn btn-primary">Save</button>
-                </div>
+                </form>
             </div>
         );
     }
