@@ -6,6 +6,7 @@ export const DELETE_USER = 'DELETE_USER';
 //Cities Actions
 export const DISPLAY_CITIES = 'DISPLAY_CITIES';
 export const ADD_CITY = 'ADD_CITY';
+export const GET_CITY = 'GET_CITY';
 export const GET_CITIES_USERS = 'GET_CITIES_USERS';
 
 //Ideas Action

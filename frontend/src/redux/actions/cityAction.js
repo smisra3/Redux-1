@@ -1,4 +1,4 @@
-import { ADD_CITY, DISPLAY_CITIES, CONFIG, GET_CITIES_USERS} from "./types";
+import { ADD_CITY, DISPLAY_CITIES, CONFIG, GET_CITIES_USERS, GET_CITY} from "./types";
 import axios from 'axios';
 
 export const getCities = () => async dispatch => {
@@ -21,6 +21,14 @@ export const displayCities = () => async dispatch => {
     const answer = await axios.get('http://52.213.25.226:3030/city',CONFIG);
     dispatch({
         type: DISPLAY_CITIES,
+        payload: answer.data.data
+    })
+};
+
+export const getCity = id => async  dispatch => {
+    const answer = await axios.get(`http://52.213.25.226:3030/city${id}`,CONFIG);
+    dispatch({
+        type: GET_CITY,
         payload: answer.data.data
     })
 };

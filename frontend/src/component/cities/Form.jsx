@@ -17,42 +17,31 @@ class Form extends Component {
         address: '',
         telephone: ''
     };
+    //Ref leen los valores en el campo de un formulario
+    citynameRef = React.createRef();
+    addressRef = React.createRef();
+    telephoneRef = React.createRef();
 
     selectUser = e => {
-        console.log( e.target.value);
         this.setState({userSelected:JSON.parse(e.target.value)})
     };
-
     addUserToTeam = (e) => {
         e.preventDefault();
         this.setState({users: [...this.state.users, this.state.userSelected]});
     };
 
-    cityName = (e) => {
-        const {value,name} = e.target;
-        this.setState({
-            [name] : value
-        })
-    };
-
     handleSubmit = (e) => {
         e.preventDefault();
-        const { users, name, address, telephone } = this.state;
-        console.log(users,name,address,telephone);
+        console.log(this.telephoneRef.current.value);
+        //const { users, name, address, telephone } = this.state;
         const newCity = {
             users:this.state.users,
-            name,
-            address,
-            telephone
+            name: this.citynameRef.current.value,
+            address: this.addressRef.current.value,
+            telephone: this.telephoneRef.current.value
         };
+        console.log(newCity);
         this.props.addCity(newCity);
-    };
-
-    handleChange = (e) => {
-        const {value,name} = e.target;
-        this.setState({
-            [name] : value
-        })
     };
 
     render() {
@@ -75,6 +64,7 @@ class Form extends Component {
                     <div className="form-group col-md-2">
                         <select className="form-control" id="exampleFormControlSelect1">
                             <option>Spain</option>
+                            <option disabled>More option soon</option>
                         </select>
                     </div>
                     <div className="offset-md-2">
@@ -98,19 +88,18 @@ class Form extends Component {
                         <button value="" className="btn btn-primary btn-sm"
                         onClick={this.addUserToTeam}>Add</button>
                     </div>
-                    <div className="form-group col-md-1">
-                        <button  className="btn btn-danger btn-sm">Remove</button>
-                    </div>
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-1">
                         <h5 id="h5C" className="ml-2">City</h5>
                     </div>
                     <div className="form-group col-md-2">
-                        <select className="form-control" onChange={this.cityName}>
+                        <select className="form-control" ref={this.citynameRef}>
                             <option value="Madrid">Madrid</option>
                             <option value="Barcelona">Barcelona</option>
                             <option value="Valencia">Valencia</option>
+                            <option value="Zaragoza">Zaragoza</option>
+                            <option value="Málaga">Málaga</option>
                         </select>
                     </div>
                 </div >
@@ -121,21 +110,21 @@ class Form extends Component {
                                name="address"
                                className="form-control ml-2"
                                placeholder="Full Address"
-                               onChange={this.handleChange}
+                               ref = {this.addressRef}
                                required/>
                     </div>
                 </div>
                 <div className="form-row">
-                    <div className="form-group col-md-2">
+                    <div className="form-group">
                         <h5 id="h5C" className="ml-2">Phone</h5>
                     </div>
-                    <div className="form-group col-md-2">
+                    <div className="form-group col-md-3">
                         <input type="text"
                                className="form-control"
                                placeholder="Phone number"
                                required
                                name="telephone"
-                               onChange={this.handleChange}/>
+                               ref={this.telephoneRef}/>
                     </div>
                     <div className="form-group col-md-2 offset-md-2">
                         <button id="btn-create" type="submit" className="btn btn-primary">CREATE</button>

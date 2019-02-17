@@ -2,15 +2,18 @@ import React, {Component} from 'react';
 import '../../styles/cities.css';
 import {connect} from "react-redux";
 import { getCities } from "../../redux/actions/cityAction";
+import { Link } from 'react-router-dom';
 
 class Cards extends Component {
 
     componentDidMount() {
         this.props.getCities();
+        console.log(this.props.info)
     }
 
     render() {
-        const { name, address, telephone } = this.props.info;
+        const { id , name, address, telephone } = this.props.info;
+        console.log(id);
             return (
             <div id="cardStyle" className="card">
                 <div>
@@ -21,7 +24,7 @@ class Cards extends Component {
                     <span id="card-phone" className="card-text">{telephone}</span>
                     <p id="tx-3" className="card-title">Demium Team</p>
                     <p className="card-text">Demium Team</p>
-                    <button href="btn" className="btn btn-primary m-3">View</button>
+                    <Link to={`/editCity/${id}`} className="btn btn-primary m-3">Edit</Link>
                 </div>
             </div>
             );

@@ -50,7 +50,6 @@ class CreateIdea extends Component {
 
     render() {
         const { businessmodels } = this.props;
-        const { available } = this.state;
         return (
             <div className="container">
                 <div id="form" onSubmit={this.handleSubmit}>
@@ -79,16 +78,6 @@ class CreateIdea extends Component {
                                   name="description" rows="3" cols="50"
                                   placeholder="Add a description" required>
                         </textarea>
-                    <div>
-                        {available ? <span className="btn-danger disabled">Not available</span>
-                            : <span id="available" className="btn-primary">Available</span> }
-                    </div>
-                        <p id="h4C">Headquartes</p>
-                        <p id="h3C">Madrid</p><br/>
-                        <p id="h4C">Team Name</p>
-                        <p id="h3C">Real Unicorn</p><br/>
-                        <p id="h4C">Blocked date</p>
-                        <p id="h3C">19/12/2019</p>
                     <button id="btn-save" type="submit" className="btn btn-primary">Save</button>
                 </div>
             </div>

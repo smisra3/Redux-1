@@ -12,6 +12,7 @@ import CreateIdea from "../ideas/CreateIdea";
 import EditIdea from '../ideas/EditIdea';
 import Login from '../login/Login';
 import Register from '../login/Register';
+import EditCity from '../cities/EditCity';
 
 const AppRouter = () => {
   return (
@@ -28,6 +29,7 @@ const AppRouter = () => {
                       <Route exact path="/errors" component={Error}/>
                       <Route exact path="/createTeam" component={CreateTeam}/>
                       <Route exact path="/editIdea" component={EditIdea}/>
+                      <Route exact path="/editCity/:id" component={EditCity}/>
                       <Route exact path="/createIdea" component={CreateIdea}/>
                   </Switch>
                   <Footer/>
