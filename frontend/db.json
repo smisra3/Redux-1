@@ -1,0 +1,179 @@
+{
+  "businessModel": [
+    {
+      "id": 1,
+      "name": "SaaS"
+    },
+    {
+      "id": 2,
+      "name": "App"
+    },
+    {
+      "id": 3,
+      "name": "E-Commerce"
+    }
+  ],
+  "city": [
+    {
+      "id": 1,
+      "name": "Bilbao",
+      "address": "Gran Via 1",
+      "phone": "+34 444 555 666",
+      "users": [
+        {
+          "id": 28
+        },
+        {
+          "id": 56
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Madrid",
+      "address": "Avenida 1",
+      "phone": "+34 444 555 666",
+      "users": [
+        {
+          "id": 1
+        },
+        {
+          "id": 33
+        }
+      ]
+    },
+    {
+      "address": "zsfdsdfv",
+      "phone": "dvsdvs",
+      "id": 5
+    }
+  ],
+  "idea": [
+    {
+      "id": 1,
+      "name": "Super SaaS",
+      "businessModelId": 2,
+      "description": "Super idea",
+      "teamId": 2
+    },
+    {
+      "id": 1,
+      "name": "Super SaaS",
+      "businessModelId": 2,
+      "description": "Otra super idea",
+      "teamId": 0
+    },
+    {
+      "name": "Azucar Blanca",
+      "businessModelId": "",
+      "description": "Para los diabeticos",
+      "id": 2
+    }
+  ],
+  "role": [
+    {
+      "id": 1,
+      "name": "CISO",
+      "is_demium": false
+    },
+    {
+      "id": 2,
+      "name": "CIO",
+      "is_demium": false
+    },
+    {
+      "id": 3,
+      "name": "CEO",
+      "is_demium": false
+    },
+    {
+      "id": 4,
+      "name": "CTO",
+      "is_demium": true
+    },
+    {
+      "id": 5,
+      "name": "CLO",
+      "is_demium": true
+    },
+    {
+      "id": 6,
+      "name": "COO",
+      "is_demium": false
+    },
+    {
+      "id": 7,
+      "name": "CFO",
+      "is_demium": false
+    },
+    {
+      "id": 8,
+      "name": "TM",
+      "is_demium": true
+    },
+    {
+      "id": 9,
+      "name": "PM",
+      "is_demium": true
+    }
+  ],
+  "team": [
+    {
+      "id": 1,
+      "name": "Real Unicorn",
+      "cityId": 2,
+      "users": [
+        {
+          "userId": 28
+        },
+        {
+          "userId": 56
+        },
+        {
+          "userId": 89
+        },
+        {
+          "userId": 99
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Real Unicorn",
+      "cityId": 2,
+      "users": [
+        {
+          "userId": 28
+        },
+        {
+          "userId": 56
+        },
+        {
+          "userId": 89
+        },
+        {
+          "userId": 129
+        }
+      ]
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "name": "Luis",
+      "surname": "Juarros",
+      "roleId": 3
+    },
+    {
+      "id": 2,
+      "name": "Fran",
+      "surname": "Novella",
+      "roleId": 0
+    },
+    {
+      "name": "Isai",
+      "surname": "Albarran ",
+      "id": 3
+    }
+  ]
+}

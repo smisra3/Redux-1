@@ -1,0 +1,75 @@
+#form{
+    background-color: #FDF8F7;
+    position: relative;
+    margin-top: 20px;
+    width: 90%;
+    -webkit-box-shadow: 3px 2px 9px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 2px 9px 3px rgba(0,0,0,0.75);
+    box-shadow: 3px 2px 9px 3px rgba(0,0,0,0.75);
+}
+#btnCreate{
+    margin-left: 80%;
+    background-color: limegreen;
+    border: none;
+}
+#btn-addIdea {
+    margin-left: 50%;
+}
+#title{
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background-color: lightblue;
+}
+#h5C{
+    margin: 5px 20px;
+    color: #e4594b;
+}
+#h4C{
+    margin: 0px 20px;
+    color: #e4594b;
+    display: inline-block;
+    padding: 10px 0px;
+}
+#h3C{
+    margin-left: 3px;
+    display: inline-block;
+}
+#inputC{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid  #e4594b;
+    margin: 0px 0px 10px 30px;
+}
+#btn-save{
+    margin-left: 10%;
+    margin-bottom: 10px;
+}
+#available{
+    background-color: #e4594b;
+    padding: 5px;
+    margin-top: 30px;
+    margin-left: 3%;
+}
+#btn-plus{
+    margin-left: 90%;
+    background-color: #1AC317;
+    border-radius: 999em;
+    border: none;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    line-height: 1;
+    font-size: 25px;
+    position: relative;
+    cursor: pointer;
+}
+#card-title{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background-color: #e4594b;
+}
