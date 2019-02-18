@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     Role.findById(req.params.id).then(data => {
-        if (!data) return res.status(404).send(`No existe un rol con _id: ${req.params.id}`)
+        if (!data) return res.status(404).send(`No existe un rol con _id: ${req.params.id}`);
         res.send(data);
     })
 });
