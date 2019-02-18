@@ -15,7 +15,7 @@ class Cities extends Component {
             <React.Fragment>
                 <div id="citiesPage" className="row">
                     {this.props.cities.map(city => (
-                        <Cards info={city} key={city.id} />
+                        <Cards info={city} key={city._id} />
                     ))}
                 </div>
                 <Form />

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../../styles/cities.css';
-import { getCity } from "../../redux/actions/cityAction";
+import { getCity, editCity } from "../../redux/actions/cityAction";
 import { connect } from 'react-redux';
 
 class EditCity extends Component {
@@ -12,10 +12,52 @@ class EditCity extends Component {
         telephone: ''
     };
 
+    //Este método no sirve para el editar porque se carga la pag antes q se cargen los datos de la API
+    componentDidMount() {
+        const { id } = this.props.match.params;
+        this.props.getCity(id);
+    };
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        const { users, name, address, telephone } = nextProps.city;
+        this.setState({
+            users, name, address, telephone
+        });
+    };
+
+    handleChange = (e) => {
+        const {value,name} = e.target;
+        this.setState({
+            [name] : value
+        })
+    };
+
+    newCity = (e) => {
+        e.preventDefault();
+        const { users, name, address, telephone } = this.state;
+        //Coger el ID
+        const { _id } = this.props.city;
+        //Importante: Crear el objeto con los mismos nombres de los atributos de la API
+        //Actualizar el producto actual
+        const city = {
+            _id,
+            users,
+            name,
+            address,
+            telephone
+        };
+        //Crear la nueva ciudad
+        this.props.editCity(city);
+        //redireccionar. Esto nos lleva al city
+        this.props.history.push('/Cities');
+
+    };
+
     render() {
+        const { users, name, address, telephone } = this.state;
         return (
             <div className="container">
-                <form id="form" onSubmit={this.handleSubmit}>
+                <form id="form" onSubmit={this.newCity}>
                     <div>
                         <h5 id="title">Edit City</h5>
                     </div>
@@ -24,30 +66,33 @@ class EditCity extends Component {
                                id="inputC"
                                name="name"
                                type="text"
-                               placeholder="Name"
+                               defaultValue={name}
+                               onChange={this.handleChange}
                                required/>
                     </div>
                     <h5 id="h5C">Address</h5>
                     <input
                         id="inputC"
-                        name="name"
+                        name="address"
                         type="text"
-                        placeholder="Name"
+                        defaultValue={address}
+                        onChange={this.handleChange}
                         required/>
                     <h5 id="h5C">Telephone</h5>
                     <input
                         id="inputC"
-                        name="name"
+                        name="telephone"
                         type="text"
-                        placeholder="Name"
+                        defaultValue={telephone}
+                        onChange={this.handleChange}
                         required/>
                     <h5 id="h5C">Demium Team</h5>
                     <input
                         id="inputC"
-                        name="name"
+                        name="users"
                         type="text"
-                        placeholder="Name"
-                        required/>
+                        defaultValue={users}
+                        onChange={this.handleChange}/>
                     <button id="btn-save" type="submit" className="btn btn-primary">Save</button>
                 </form>
             </div>
@@ -58,4 +103,4 @@ const mapStateToProps = state => ({
     city: state.cities.city
 });
 
-export default connect (mapStateToProps,{ getCity }) (EditCity);
+export default connect (mapStateToProps,{ getCity, editCity }) (EditCity);

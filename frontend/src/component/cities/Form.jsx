@@ -73,7 +73,7 @@ class Form extends Component {
                     <div className="form-group col-md-2">
                         <select id="selectOption" className="form-control" onChange={this.selectUser}>
                             {users.map(user => (
-                                <option value={JSON.stringify(user)} key={user.id}>{user.name}</option>
+                                <option value={JSON.stringify(user)} key={user._id}>{user.name}</option>
                             ))}
                         </select>
                         <label id="labelAddUser">

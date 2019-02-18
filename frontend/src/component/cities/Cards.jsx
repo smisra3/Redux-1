@@ -11,7 +11,7 @@ class Cards extends Component {
     }
 
     render() {
-        const { id , name, address, telephone } = this.props.info;
+        const { _id , name, address, telephone } = this.props.info;
             return (
             <div id="cardStyle" className="card">
                 <div>
@@ -22,7 +22,7 @@ class Cards extends Component {
                     <span id="card-phone" className="card-text">{telephone}</span>
                     <p id="tx-3" className="card-title">Demium Team</p>
                     <p className="card-text">Demium Team</p>
-                    <Link to={`/editCity/${id}`} className="btn btn-primary m-3">Edit</Link>
+                    <Link to={`/editCity/${_id}`} className="btn btn-primary m-3">Edit</Link>
                 </div>
             </div>
             );

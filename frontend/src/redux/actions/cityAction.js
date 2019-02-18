@@ -1,4 +1,4 @@
-import { ADD_CITY, DISPLAY_CITIES, CONFIG, GET_CITIES_USERS, GET_CITY} from "./types";
+import { ADD_CITY, DISPLAY_CITIES, CONFIG, GET_CITIES_USERS, GET_CITY, EDIT_CITY } from "./types";
 import axios from 'axios';
 
 export const getCities = () => async dispatch => {
@@ -25,18 +25,29 @@ export const displayCities = () => async dispatch => {
     })
 };
 
-export const getCity = id => async  dispatch => {
-    const answer = await axios.get(`http://52.213.25.226:3030/city${id}`,CONFIG);
+export const getCity = (id) => async  dispatch => {
+    const answer = await axios.get(`http://52.213.25.226:3030/city/${id}`,CONFIG);
+    console.log("getCity", answer.data);
     dispatch({
         type: GET_CITY,
-        payload: answer.data.data
+        payload: answer.data
     })
 };
 
 export const addCity = (city) => async dispatch => {
+    console.log(city);
     const answer = await axios.post('http://52.213.25.226:3030/city',city,CONFIG);
     dispatch({
         type: ADD_CITY,
+        payload: answer.data
+    })
+};
+
+export const editCity = city => async dispatch => {
+    console.log(city);
+    const answer = await axios.put(`http://52.213.25.226:3030/city/${city._id}`,city, CONFIG);
+    dispatch({
+        type: EDIT_CITY,
         payload: answer.data
     })
 };
