@@ -13,6 +13,8 @@ export const GET_CITIES_USERS = 'GET_CITIES_USERS';
 //Ideas Action
 export const DISPLAY_IDEAS = 'DISPLAY_IDEAS';
 export const ADD_IDEA = 'ADD_IDEA';
+export const GET_IDEA = 'GET_IDEA';
+export const EDIT_IDEA = 'EDIT_IDEA';
 
 //Team Actions
 export const DISPLAY_TEAMS = 'DISPLAY_TEAMS';

@@ -38,14 +38,7 @@ class EditCity extends Component {
         //Coger el ID
         const { _id } = this.props.city;
         //Importante: Crear el objeto con los mismos nombres de los atributos de la API
-        //Actualizar el producto actual
-        const city = {
-            _id,
-            users,
-            name,
-            address,
-            telephone
-        };
+        const city = { _id, users, name, address, telephone };
         //Crear la nueva ciudad
         this.props.editCity(city);
         //redireccionar. Esto nos lleva al city
@@ -55,6 +48,7 @@ class EditCity extends Component {
 
     render() {
         const { users, name, address, telephone } = this.state;
+        console.log(name);
         return (
             <div className="container">
                 <form id="form" onSubmit={this.newCity}>

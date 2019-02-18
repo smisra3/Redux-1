@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {connect} from "react-redux";
 import '../../styles/ideas.css'
+import { Link } from 'react-router-dom';
 
 class Cards extends Component {
 
     render() {
-            const { name, businessModelId, description } = this.props.info;
+            const { _id, name, businessModelId, description } = this.props.info;
 
             let title = '';
             if ( businessModelId === 'SaaS') {title = 'Super Saas'}
@@ -26,7 +26,7 @@ class Cards extends Component {
                            <label id="h4C" name="description">Description</label>
                            <p id="h3C">{description}</p>
                            <div className="row">
-                               <button id="btn-save" type="button" className="btn btn-dark">Edit</button>
+                               <Link to={`/editIdea/${_id}`} id="btn-save" className="btn btn-dark">Edit</Link>
                            </div>
                        </div>
                    </div>
@@ -34,8 +34,4 @@ class Cards extends Component {
     }
 }
 
-export default connect ((state,props) => {
-    return {
-        ideas : state.ideas
-    }
-}) (Cards);
+export default Cards;

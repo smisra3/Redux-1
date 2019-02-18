@@ -28,9 +28,9 @@ const AppRouter = () => {
                       <Route exact path="/teams" component={Teams}/>
                       <Route exact path="/errors" component={Error}/>
                       <Route exact path="/createTeam" component={CreateTeam}/>
-                      <Route exact path="/editIdea" component={EditIdea}/>
-                      <Route exact path="/editCity/:id" component={EditCity}/>
                       <Route exact path="/createIdea" component={CreateIdea}/>
+                      <Route exact path="/editIdea/:id" component={EditIdea}/>
+                      <Route exact path="/editCity/:id" component={EditCity}/>
                   </Switch>
                   <Footer/>
               </div>

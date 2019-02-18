@@ -27,7 +27,6 @@ export const displayCities = () => async dispatch => {
 
 export const getCity = (id) => async  dispatch => {
     const answer = await axios.get(`http://52.213.25.226:3030/city/${id}`,CONFIG);
-    console.log("getCity", answer.data);
     dispatch({
         type: GET_CITY,
         payload: answer.data
@@ -44,7 +43,6 @@ export const addCity = (city) => async dispatch => {
 };
 
 export const editCity = city => async dispatch => {
-    console.log(city);
     const answer = await axios.put(`http://52.213.25.226:3030/city/${city._id}`,city, CONFIG);
     dispatch({
         type: EDIT_CITY,
