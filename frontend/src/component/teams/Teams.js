@@ -15,9 +15,9 @@ class Teams extends Component {
         const { teams } = this.props;
         return (
             <React.Fragment>
-                <div className="row container">
+                <div className="row container-fluid">
                     {teams.map(team => (
-                        <Cards info={team} key={team.id}/>
+                        <Cards info={team} key={team._id}/>
                     ))}
                 </div>
                 <Link id="btn-plus" to="/createTeam" className="btn btn-primary">+</Link>

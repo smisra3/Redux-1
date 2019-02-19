@@ -17,7 +17,7 @@ class Ideas extends Component {
             <React.Fragment>
                 <div id="ideasPage" className="row">
                     {ideas.map(idea => (
-                        <Cards info={idea} key={idea}/>
+                        <Cards info={idea} key={idea._id}/>
                     ))}
                 </div>
                 <Link id="btn-plus" to="/createIdea" className="btn btn-primary">+</Link>

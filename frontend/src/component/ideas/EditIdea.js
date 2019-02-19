@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { getBusinessmodels } from "../../redux/actions/businessAction";
-import { getIdea, editIdea } from "../../redux/actions/ideaAction";
+import { getIdea, editIdea, deleteIdea } from "../../redux/actions/ideaAction";
 import '../../styles/ideas.css';
 
 class EditIdea extends Component {
@@ -42,6 +42,11 @@ class EditIdea extends Component {
 
     };
 
+    deleteIdea = () => {
+        const { _id } = this.props.idea;
+        this.props.deleteIdea(_id);
+    };
+
     render() {
         const { name, businessModelId, description, teamId } = this.state;
         return (
@@ -73,6 +78,7 @@ class EditIdea extends Component {
                     <p id="h4C">Blocked date</p>
                     <p id="h3C">19/12/2019</p>
                     <button id="btn-save" type="submit" className="btn btn-primary">Save</button>
+                    <button id="btn-save" onClick={this.deleteIdea} className="btn btn-danger">Delete</button>
                 </form>
             </div>
         );
@@ -84,4 +90,4 @@ const mapStateToProps = state => {
         idea: state.ideas.idea
     }
 };
-export default connect(mapStateToProps, { getBusinessmodels, getIdea, editIdea }) (EditIdea);
+export default connect(mapStateToProps, { getBusinessmodels, getIdea, editIdea, deleteIdea }) (EditIdea);

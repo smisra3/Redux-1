@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../../styles/cities.css';
-import { getCity, editCity } from "../../redux/actions/cityAction";
+import { getCity, editCity, deleteCity } from "../../redux/actions/cityAction";
 import { connect } from 'react-redux';
 
 class EditCity extends Component {
@@ -43,7 +43,10 @@ class EditCity extends Component {
         this.props.editCity(city);
         //redireccionar. Esto nos lleva al city
         this.props.history.push('/Cities');
-
+    };
+    deleteCity = () => {
+        const { _id } = this.props.city;
+        this.props.deleteCity(_id);
     };
 
     render() {
@@ -88,7 +91,9 @@ class EditCity extends Component {
                         defaultValue={users}
                         onChange={this.handleChange}/>
                     <button id="btn-save" type="submit" className="btn btn-primary">Save</button>
+                    <button id="btn-save" onClick={this.deleteCity} className="btn btn-danger">Delete</button>
                 </form>
+
             </div>
         );
     }
@@ -97,4 +102,4 @@ const mapStateToProps = state => ({
     city: state.cities.city
 });
 
-export default connect (mapStateToProps,{ getCity, editCity }) (EditCity);
+export default connect (mapStateToProps,{ getCity, editCity, deleteCity }) (EditCity);

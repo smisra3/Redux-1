@@ -78,7 +78,7 @@ class Form extends Component {
                         </select>
                         <label id="labelAddUser">
                             {
-                                this.state.users.map(user => <div>{user.name}</div>)
+                                this.state.users.map(user => <div key={user._id}>{user.name}</div>)
                             }
                         </label>
                     </div>
