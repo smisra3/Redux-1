@@ -4,6 +4,7 @@ import '../../styles/users.css'
 import { deleteUser } from "../../redux/actions/userAction";
 
 class UserRow extends Component {
+
     deleteUser = () => {
         const { _id } = this.props.info;
         this.props.deleteUser(_id);
@@ -11,13 +12,14 @@ class UserRow extends Component {
 
     render() {
         const { name, surname, roleId } =this.props.info;
+
         return (
                 <tr>
                     <td>{name}</td>
                     <td>{surname}</td>
-                    <td>{roleId}</td>
+                    <td>Role</td>
                     <td>City</td>
-                    <button type="button" onClick={this.deleteUser}>Borrar</button>
+                    <td type="button" id="btn-delete" onClick={this.deleteUser}>Borrar</td>
                 </tr>
         );
     }

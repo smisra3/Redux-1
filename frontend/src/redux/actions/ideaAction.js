@@ -1,4 +1,4 @@
-import {DISPLAY_IDEAS, ADD_IDEA, CONFIG, GET_IDEA, EDIT_IDEA} from "./types";
+import {DISPLAY_IDEAS, ADD_IDEA, CONFIG, GET_IDEA, EDIT_IDEA, DELETE_IDEA} from "./types";
 import axios from 'axios';
 
 export const displayIdeas = () => async dispatch => {
@@ -31,5 +31,13 @@ export const editIdea = idea => async dispatch => {
     dispatch({
         type: EDIT_IDEA,
         payload: answer.data
+    })
+};
+
+export const deleteIdea = id => async dispatch => {
+    await axios.delete(`http://52.213.25.226:3030/idea/${id}`, CONFIG);
+    dispatch({
+        type: DELETE_IDEA,
+        payload: id
     })
 };

@@ -7,13 +7,13 @@ class Cards extends Component {
     render() {
             const { name } = this.props.info;
             return(
-                    <div id="cardStyle" className="card col-md-4">
+                    <div id="cardStyle" className="card col-md-3">
                         <div className="card-body">
                             <h5 id="card-title-team" className="card-title">{name}</h5>
-                            <label id="tx-2" className="mr-2">Idea</label>
+                            <label id="tx-2" className="">Idea</label>
                             <label>texto Idea</label>
                             <br/>
-                            <label id="tx-2" className="mr-2">City</label>
+                            <label id="tx-2" className="">City</label>
                             <label>texto ciudad</label>
                             <dl>
                                 <dt id="tx-3">Team Members</dt>

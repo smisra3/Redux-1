@@ -23,7 +23,9 @@ class Users extends Component {
             <React.Fragment>
                 <table id="table" className="container">
                     <thead>
-                    <th id="user" colSpan="4">Users</th>
+                    <tr>
+                        <th id="user" colSpan="4">Users</th>
+                    </tr>
                         <tr id="user-row">
                             <th scope="col">Name</th>
                             <th scope="col">Surname</th>
@@ -33,11 +35,11 @@ class Users extends Component {
                     </thead>
                     <tbody>
                         {this.props.users.map(user => (
-                            <UserRow info={user}/>
+                            <UserRow key={user._id} info={user} roles={roles}/>
                         ))}
                     </tbody>
                 </table>
-                <UserForm cities={cities} roles={roles} key={roles.id}/>
+                <UserForm cities={cities} roles={roles} key={roles._id}/>
             </React.Fragment>
         );
     }

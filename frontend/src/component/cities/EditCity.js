@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../../styles/cities.css';
-import { getCity, editCity } from "../../redux/actions/cityAction";
+import { getCity, editCity, deleteCity } from "../../redux/actions/cityAction";
 import { connect } from 'react-redux';
 
 class EditCity extends Component {
@@ -43,12 +43,15 @@ class EditCity extends Component {
         this.props.editCity(city);
         //redireccionar. Esto nos lleva al city
         this.props.history.push('/Cities');
-
+    };
+    deleteCity = () => {
+        const { _id } = this.props.city;
+        this.props.deleteCity(_id);
     };
 
     render() {
         const { users, name, address, telephone } = this.state;
-        console.log(name);
+        console.log(this.props.city);
         return (
             <div className="container">
                 <form id="form" onSubmit={this.newCity}>
@@ -81,13 +84,14 @@ class EditCity extends Component {
                         onChange={this.handleChange}
                         required/>
                     <h5 id="h5C">Demium Team</h5>
-                    <input
-                        id="inputC"
-                        name="users"
-                        type="text"
-                        defaultValue={users}
-                        onChange={this.handleChange}/>
+                    <div className="container">
+                        {[...new Set(users.map(user => user.name))]
+                            .map (name => (
+                                <p>{name}</p >
+                            ))}
+                    </div>
                     <button id="btn-save" type="submit" className="btn btn-primary">Save</button>
+                    <button id="btn-save" onClick={this.deleteCity} className="btn btn-danger">Delete</button>
                 </form>
             </div>
         );
@@ -97,4 +101,4 @@ const mapStateToProps = state => ({
     city: state.cities.city
 });
 
-export default connect (mapStateToProps,{ getCity, editCity }) (EditCity);
+export default connect (mapStateToProps,{ getCity, editCity, deleteCity }) (EditCity);

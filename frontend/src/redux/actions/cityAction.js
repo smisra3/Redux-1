@@ -1,4 +1,4 @@
-import { ADD_CITY, DISPLAY_CITIES, CONFIG, GET_CITIES_USERS, GET_CITY, EDIT_CITY } from "./types";
+import {ADD_CITY, DISPLAY_CITIES, CONFIG, GET_CITIES_USERS, GET_CITY, EDIT_CITY, DELETE_CITY} from "./types";
 import axios from 'axios';
 
 export const getCities = () => async dispatch => {
@@ -49,4 +49,13 @@ export const editCity = city => async dispatch => {
         payload: answer.data
     })
 };
+
+export const deleteCity = id => async dispatch => {
+    await axios.delete(`http://52.213.25.226:3030/city/${id}`, CONFIG);
+    dispatch({
+        type: DELETE_CITY,
+        payload: id
+    })
+};
+
 
