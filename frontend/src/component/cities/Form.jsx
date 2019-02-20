@@ -15,15 +15,17 @@ class Form extends Component {
         userSelected: null,
         name: '',
         address: '',
-        telephone: ''
+        telephone: '',
     };
     //Ref leen los valores en el campo de un formulario
     citynameRef = React.createRef();
     addressRef = React.createRef();
     telephoneRef = React.createRef();
+    formRef = null;
 
     selectUser = e => {
-        this.setState({userSelected:JSON.parse(e.target.value)})
+        console.log(JSON.parse(e.target.value));
+        this.setState({userSelected:JSON.parse(e.target.value)});
     };
     addUserToTeam = (e) => {
         e.preventDefault();
@@ -39,13 +41,15 @@ class Form extends Component {
             address: this.addressRef.current.value,
             telephone: this.telephoneRef.current.value
         };
+        console.log(newCity);
         this.props.addCity(newCity);
+        this.formRef.reset();
     };
 
     render() {
         const { users } = this.props;
         return (
-            <form id="form"  onSubmit={this.handleSubmit}>
+            <form id="form" ref={(ref) => this.formRef = ref} onSubmit={this.handleSubmit}>
                 <h5 id="title">Add City</h5>
                 <div className="form-row">
                     <div className="form-group col-md-4">
@@ -72,6 +76,7 @@ class Form extends Component {
                     </div>
                     <div className="form-group col-md-2">
                         <select id="selectOption" className="form-control" onChange={this.selectUser}>
+                            <option>---</option>
                             {users.map(user => (
                                 <option value={JSON.stringify(user)} key={user._id}>{user.name}</option>
                             ))}
@@ -96,7 +101,7 @@ class Form extends Component {
                             <option value="Madrid">Madrid</option>
                             <option value="Barcelona">Barcelona</option>
                             <option value="Valencia">Valencia</option>
-                            <option value="Zaragoza">Zaragoza</option>
+                            <option value="Bilbao">Bilbao</option>
                             <option value="Málaga">Málaga</option>
                         </select>
                     </div>

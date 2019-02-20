@@ -32,14 +32,19 @@ class EditIdea extends Component {
         })
     };
 
+    selectBusiness = (e) => {
+        const nameBM = e.target.value;
+        const obj = JSON.parse(nameBM);
+        this.setState({businessModelId:obj._id})
+    };
+
     newIdea = (e) => {
         e.preventDefault();
-        const { name, businessModelId, description, teamId } = this.state;
+        const { name,  businessModelId, description, teamId } = this.state;
         const { _id } = this.props.idea;
         const idea = { _id, name, businessModelId, description, teamId };
         this.props.editIdea(idea);
         this.props.history.push('/ideas');
-
     };
 
     deleteIdea = () => {
@@ -48,7 +53,8 @@ class EditIdea extends Component {
     };
 
     render() {
-        const { name, businessModelId, description, teamId } = this.state;
+        const { name, description, teamId } = this.state;
+        const { businessmodels } = this.props;
         return (
             <div className="container">
                 <form id="form" onSubmit={this.newIdea}>
@@ -64,14 +70,18 @@ class EditIdea extends Component {
                                required/>
                     </div>
                     <h5 id="h5C">Business Model</h5>
-                    <span id="h4C">{businessModelId}</span>
+                        <select id="selectBs" onChange={this.selectBusiness} ref={this.busisnessRef}>
+                            {businessmodels.map(business => (
+                                <option key={business._id} value={JSON.stringify(business)}>{business.name}</option>
+                            ))}
+                        </select>
                     <h5 id="h5C">Description</h5>
                     <textarea onChange={this.handleChange}
                               id="inputC"
                               placeholder={description}
                               name="description" rows="3" cols="50">
                         </textarea>
-                    <p id="h4C">Headquartes</p>
+                    <p id="h4C">Headquarter</p>
                     <p id="h3C">Madrid</p><br/>
                     <p id="h4C">Team Name</p>
                     <p id="h3C">Real Unicorn</p><br/>

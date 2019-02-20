@@ -12,6 +12,7 @@ class Cards extends Component {
 
     render() {
         const { _id , name, address, telephone } = this.props.info;
+        const { users } = this.props.info;
             return (
             <div id="cardStyle" className="card">
                 <div>
@@ -20,8 +21,11 @@ class Cards extends Component {
                     <p className="card-text">{address}</p>
                     <label id="tx-2" className="card-title">Phone</label>
                     <span id="card-phone" className="card-text">{telephone}</span>
-                    <p id="tx-3" className="card-title">Demium Team</p>
-                    <p className="card-text">Demium Team</p>
+                        <p id="tx-3" className="card-title ml-2">Demium Team</p>
+                        {[...new Set(users.map(user => user.name))]
+                            .map (name => (
+                                <p>{name}</p >
+                            ))}
                     <Link to={`/editCity/${_id}`} className="btn btn-primary m-3">Edit</Link>
                 </div>
             </div>

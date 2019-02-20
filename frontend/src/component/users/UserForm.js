@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { addUser } from "../../redux/actions/userAction";
 import '../../styles/users.css';
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 class UserForm extends Component {
 
@@ -19,6 +21,7 @@ class UserForm extends Component {
     emailRef = React.createRef();
     telephoneRef = React.createRef();
     roleRef = React.createRef();
+    formRef = null;
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -35,6 +38,7 @@ class UserForm extends Component {
         this.setState({error:false});
         const newUser = { name, surname, email, telephone, roleId};
         this.props.addUser(newUser);
+        this.formRef.reset();
     };
 
     render() {
@@ -43,7 +47,7 @@ class UserForm extends Component {
         const { error } = this.state;
         return (
             <React.Fragment>
-                <form id="form" onSubmit={this.handleSubmit}>
+                <form ref={(ref) => this.formRef = ref} id="form" onSubmit={this.handleSubmit}>
                     <h5 id="title">Add User</h5>
                     <div className="form-row">
                         <div className="form-group col-md-4">
@@ -100,11 +104,11 @@ class UserForm extends Component {
                             <h5 id="h5C" className="col-sm-2 col-form-label">Phone</h5>
                         </div>
                         <div className="form-group col-md-4">
-                            <input type="text"
-                                   name="telephone"
-                                   className="form-control"
-                                   placeholder="Phone number"
-                                   ref={this.telephoneRef}/>
+                            <PhoneInput
+                                placeholder="Enter phone number"
+                                value={ this.state.telephone }
+                                ref={this.telephoneRef}
+                                onChange={ telephone => this.setState({ telephone }) } />
                         </div>
                         <div className="form-group offset-1 col-md-3">
                             <button id="btn-create" type="submit" className="btn btn-primary">CREATE</button>

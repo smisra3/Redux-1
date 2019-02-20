@@ -51,7 +51,7 @@ class EditCity extends Component {
 
     render() {
         const { users, name, address, telephone } = this.state;
-        console.log(name);
+        console.log(this.props.city);
         return (
             <div className="container">
                 <form id="form" onSubmit={this.newCity}>
@@ -84,16 +84,15 @@ class EditCity extends Component {
                         onChange={this.handleChange}
                         required/>
                     <h5 id="h5C">Demium Team</h5>
-                    <input
-                        id="inputC"
-                        name="users"
-                        type="text"
-                        defaultValue={users}
-                        onChange={this.handleChange}/>
+                    <div className="container">
+                        {[...new Set(users.map(user => user.name))]
+                            .map (name => (
+                                <p>{name}</p >
+                            ))}
+                    </div>
                     <button id="btn-save" type="submit" className="btn btn-primary">Save</button>
                     <button id="btn-save" onClick={this.deleteCity} className="btn btn-danger">Delete</button>
                 </form>
-
             </div>
         );
     }
