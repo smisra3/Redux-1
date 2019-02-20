@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "demium",
   "version": "0.1.0",
   "private": true,
@@ -24,18 +23,10 @@
     "npm": "6.6.0",
     "node": "10.15.0"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
-=======
   "name": "isai_repo",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://isaialbarran@bitbucket.org/demiumstartups/isai_repo.git",
   "author": "isaialbarran <isaialbarran@hotmail.com>",
   "license": "MIT"
->>>>>>> develop
 }
