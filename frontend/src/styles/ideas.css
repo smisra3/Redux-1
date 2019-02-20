@@ -31,6 +31,7 @@
     color: #e4594b;
     display: inline-block;
     padding: 10px 0px;
+    font-weight: bold;
 }
 #h3C{
     margin-left: 3px;
@@ -38,6 +39,7 @@
 }
 #inputC{
     background: transparent;
+    display: block;
     border: none;
     border-bottom: 1px solid  #e4594b;
     margin: 0px 0px 10px 30px;
@@ -72,4 +74,7 @@
     padding: 10px;
     color: white;
     background-color: #e4594b;
+}
+#selectBs{
+    margin-left: 3%;
 }

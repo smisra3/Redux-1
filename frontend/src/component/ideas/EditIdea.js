@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { getBusinessmodels } from "../../redux/actions/businessAction";
-import { getIdea, editIdea } from "../../redux/actions/ideaAction";
+import { getIdea, editIdea, deleteIdea } from "../../redux/actions/ideaAction";
 import '../../styles/ideas.css';
 
 class EditIdea extends Component {
@@ -32,18 +32,29 @@ class EditIdea extends Component {
         })
     };
 
+    selectBusiness = (e) => {
+        const nameBM = e.target.value;
+        const obj = JSON.parse(nameBM);
+        this.setState({businessModelId:obj._id})
+    };
+
     newIdea = (e) => {
         e.preventDefault();
-        const { name, businessModelId, description, teamId } = this.state;
+        const { name,  businessModelId, description, teamId } = this.state;
         const { _id } = this.props.idea;
         const idea = { _id, name, businessModelId, description, teamId };
         this.props.editIdea(idea);
         this.props.history.push('/ideas');
+    };
 
+    deleteIdea = () => {
+        const { _id } = this.props.idea;
+        this.props.deleteIdea(_id);
     };
 
     render() {
-        const { name, businessModelId, description, teamId } = this.state;
+        const { name, description, teamId } = this.state;
+        const { businessmodels } = this.props;
         return (
             <div className="container">
                 <form id="form" onSubmit={this.newIdea}>
@@ -59,20 +70,25 @@ class EditIdea extends Component {
                                required/>
                     </div>
                     <h5 id="h5C">Business Model</h5>
-                    <span id="h4C">{businessModelId}</span>
+                        <select id="selectBs" onChange={this.selectBusiness} ref={this.busisnessRef}>
+                            {businessmodels.map(business => (
+                                <option key={business._id} value={JSON.stringify(business)}>{business.name}</option>
+                            ))}
+                        </select>
                     <h5 id="h5C">Description</h5>
                     <textarea onChange={this.handleChange}
                               id="inputC"
                               placeholder={description}
                               name="description" rows="3" cols="50">
                         </textarea>
-                    <p id="h4C">Headquartes</p>
+                    <p id="h4C">Headquarter</p>
                     <p id="h3C">Madrid</p><br/>
                     <p id="h4C">Team Name</p>
                     <p id="h3C">Real Unicorn</p><br/>
                     <p id="h4C">Blocked date</p>
                     <p id="h3C">19/12/2019</p>
                     <button id="btn-save" type="submit" className="btn btn-primary">Save</button>
+                    <button id="btn-save" onClick={this.deleteIdea} className="btn btn-danger">Delete</button>
                 </form>
             </div>
         );
@@ -84,4 +100,4 @@ const mapStateToProps = state => {
         idea: state.ideas.idea
     }
 };
-export default connect(mapStateToProps, { getBusinessmodels, getIdea, editIdea }) (EditIdea);
+export default connect(mapStateToProps, { getBusinessmodels, getIdea, editIdea, deleteIdea }) (EditIdea);

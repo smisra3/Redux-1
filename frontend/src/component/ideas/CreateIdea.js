@@ -50,8 +50,7 @@ class CreateIdea extends Component {
                     </div>
                     <h5 id="h5C">Business Model</h5>
                             <span id="h4C">Select type</span>
-                            <select
-                                    ref={this.busisnessRef}>
+                            <select ref={this.busisnessRef}>
                                 {businessmodels.map(business => (
                                     <option ref={business}>{business.name}</option>
                                 ))}

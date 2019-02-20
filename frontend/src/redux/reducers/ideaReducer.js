@@ -1,4 +1,4 @@
-import {DISPLAY_IDEAS, ADD_IDEA, GET_IDEA, EDIT_IDEA} from '../actions/types';
+import {DISPLAY_IDEAS, ADD_IDEA, GET_IDEA, EDIT_IDEA, DELETE_IDEA} from '../actions/types';
 
 const initialState = {
     ideas: []
@@ -26,6 +26,13 @@ export default function (state = initialState, action){
                 ...state,
                 ideas: state.ideas.map(idea => idea._id === action.payload.id
                     ? (idea = action.payload) : idea)
+            };
+        case DELETE_IDEA:
+            return{
+                ...state,
+                ideas: state.ideas.filter(idea => (
+                    idea._id !== action.payload
+                ))
             };
         default:
             return state;
